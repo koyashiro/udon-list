@@ -1,7 +1,7 @@
 using UnityEngine;
 using UdonSharp;
 
-namespace Koyashiro.UdonList.Test
+namespace Koyashiro.UdonList.Tests
 {
     public class NewTest : UdonSharpBehaviour
     {
