@@ -13,6 +13,22 @@ namespace Koyashiro.UdonList.Tests
             }
         }
 
+        public static void True(bool actual)
+        {
+            if (!actual)
+            {
+                Debug.LogError($"Test failed!\nexpected: true    actual: {ToDebugString(actual)}");
+            }
+        }
+
+        public static void False(bool actual)
+        {
+            if (actual)
+            {
+                Debug.LogError($"Test failed!\nexpected: false    actual: {ToDebugString(actual)}");
+            }
+        }
+
         [RecursiveMethod]
         private static bool Equals(object objA, object objB)
         {

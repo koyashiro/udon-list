@@ -9,28 +9,16 @@ public class UdonListSample : UdonSharpBehaviour
         // var list = new List<string>();
         var list = UdonList.New(); // []
 
-        // list.Add("first");
-        UdonList.Add(list, "first"); // ["first"];
+        list.Add("first"); // ["first"];
+        list.Add("second"); // ["first", "second"]
+        list.Add("third"); // ["first", "second", "third"]
 
-        // list.Add("second");
-        UdonList.Add(list, "second"); // ["first", "second"]
+        Debug.Log(list.GetCount()); // 3
 
-        // list.Add("third");
-        UdonList.Add(list, "third"); // ["first", "second", "third"]
+        Debug.Log(list.GetItem(0)); // "first"
+        Debug.Log(list.GetItem(1)); // "second"
+        Debug.Log(list.GetItem(2)); // "third"
 
-        // Debug.Log(list.Count);
-        Debug.Log(UdonList.GetCount(list)); // 3
-
-        // Debug.Log(list[0]);
-        Debug.Log(UdonList.GetItem(list, 0)); // "first"
-
-        // Debug.Log(list[1]);
-        Debug.Log(UdonList.GetItem(list, 1)); // "second"
-
-        // Debug.Log(list[2]);
-        Debug.Log(UdonList.GetItem(list, 2)); // "third"
-
-        // var array = list.ToArray();
-        var array = UdonList.ToArray(list);
+        var array = list.ToArray();
     }
 }

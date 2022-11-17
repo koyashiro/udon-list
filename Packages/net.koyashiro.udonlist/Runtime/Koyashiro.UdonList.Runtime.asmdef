@@ -1,6 +1,8 @@
 {
     "name": "Koyashiro.UdonList.Runtime",
-    "references": [],
+    "references": [
+        "UdonSharp.Runtime"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
