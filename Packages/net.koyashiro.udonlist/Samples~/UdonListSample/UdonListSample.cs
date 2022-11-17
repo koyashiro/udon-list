@@ -1,15 +1,8 @@
-# UdonList
-
-List implementation for UdonSharp.
-
-## Example
-
-```cs
 using UdonSharp;
 using UnityEngine;
 using Koyashiro.UdonList;
 
-public class UdonListExample : UdonSharpBehaviour
+public class UdonListSample : UdonSharpBehaviour
 {
     public void Start()
     {
@@ -41,5 +34,3 @@ public class UdonListExample : UdonSharpBehaviour
         var array = UdonList.ToArray(list);
     }
 }
-
-```

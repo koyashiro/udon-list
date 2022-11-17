@@ -58,3 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# vscode
+.vscode/
+
+# Assets
+Assets/
+
+# Exports
+Exports/
