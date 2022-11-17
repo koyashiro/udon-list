@@ -1,7 +1,7 @@
 {
   "name": "net.koyashiro.udonlist",
   "displayName": "UdonList",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "List implementation for UdonSharp.",
   "homepage": "https://github.com/koyashiro/udon-list",
   "bugs": {
