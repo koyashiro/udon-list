@@ -1,8 +1,6 @@
 {
     "name": "Koyashiro.UdonList.Tests.Runtime",
     "references": [
-        "VRC.SDK3",
-        "VRC.SDKBase",
         "UdonSharp.Runtime",
         "Koyashiro.UdonList.Runtime"
     ],

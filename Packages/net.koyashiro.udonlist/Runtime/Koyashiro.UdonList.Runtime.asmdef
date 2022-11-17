@@ -1,10 +1,6 @@
 {
     "name": "Koyashiro.UdonList.Runtime",
-    "references": [
-        "VRC.SDK3",
-        "VRC.SDKBase",
-        "UdonSharp.Runtime"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

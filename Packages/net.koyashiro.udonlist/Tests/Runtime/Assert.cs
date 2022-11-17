@@ -3,7 +3,7 @@ using UdonSharp;
 
 namespace Koyashiro.UdonList.Tests
 {
-    public class Assert : UdonSharpBehaviour
+    public static class Assert
     {
         public static void Equal(object expected, object actual)
         {

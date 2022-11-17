@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
-using UdonSharp;
 
 namespace Koyashiro.UdonList
 {
-    public class UdonList : UdonSharpBehaviour
+    public static class UdonList
     {
         public static object[] New()
         {
