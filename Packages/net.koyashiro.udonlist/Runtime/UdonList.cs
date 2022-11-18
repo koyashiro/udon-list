@@ -6,10 +6,7 @@ namespace Koyashiro.UdonList
     {
         public static UdonList New()
         {
-            var rawArray = new object[0];
-            var count = 0;
-
-            return (UdonList)(object)(new object[] { rawArray, count });
+            return New(0);
         }
 
         public static UdonList New(object[] items)
