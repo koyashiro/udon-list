@@ -31,7 +31,7 @@ namespace Koyashiro.UdonList
 
         public static int GetCount(this UdonList list)
         {
-            return (int)(((object[])(object)list)[1]);
+            return (int)list.AsArray()[1];
         }
 
         public static object GetItem(this UdonList list, int index)
@@ -256,19 +256,24 @@ namespace Koyashiro.UdonList
             return array;
         }
 
+        private static object[] AsArray(this UdonList list)
+        {
+            return (object[])(object)list;
+        }
+
         private static object[] GetRawArray(this UdonList list)
         {
-            return (object[])(((object[])(object)list)[0]);
+            return (object[])list.AsArray()[0];
         }
 
         private static void SetRawArray(this UdonList list, object[] rawArray)
         {
-            ((object[])(object)list)[0] = rawArray;
+            list.AsArray()[0] = rawArray;
         }
 
         private static void SetCount(this UdonList list, int count)
         {
-            ((object[])(object)list)[1] = count;
+            list.AsArray()[1] = count;
         }
 
         private static int NextCapacity(int currentCupacity)
