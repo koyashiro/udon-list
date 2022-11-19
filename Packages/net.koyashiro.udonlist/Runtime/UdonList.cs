@@ -1,4 +1,5 @@
 using UdonSharp;
+using Koyashiro.UdonList.Generic;
 
 namespace Koyashiro.UdonList
 {
@@ -6,23 +7,17 @@ namespace Koyashiro.UdonList
     {
         public static UdonList New()
         {
-            return New(0);
+            return (UdonList)(object)UdonGenericList.New();
         }
 
-        public static UdonList New(object[] items)
+        public static UdonList New(object[] collection)
         {
-            var rawArray = (object[])items.Clone();
-            var count = rawArray.Length;
-
-            return (UdonList)(object)(new object[] { rawArray, count });
+            return (UdonList)(object)UdonGenericList.New(collection);
         }
 
         public static UdonList New(int capacity)
         {
-            var rawArray = new object[capacity];
-            var count = 0;
-
-            return (UdonList)(object)(new object[] { rawArray, count });
+            return (UdonList)(object)UdonGenericList.New(capacity);
         }
     }
 }

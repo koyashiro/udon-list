@@ -1,4 +1,3 @@
-using UnityEngine;
 using UdonSharp;
 
 namespace Koyashiro.UdonList.Tests

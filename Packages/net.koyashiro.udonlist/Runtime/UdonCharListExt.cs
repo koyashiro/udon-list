@@ -1,145 +1,157 @@
+using Koyashiro.UdonList.Generic;
+
 namespace Koyashiro.UdonList
 {
     public static class UdonCharListExt
     {
-        public static int GetCapacity(this UdonCharList list)
+        public static int Capacity(this UdonCharList list)
         {
-            return list.AsUdonList().GetCapacity();
+            return UdonGenericList.Capacity(list.AsObjectArray());
         }
 
         public static void SetCapacity(this UdonCharList list, int capacity)
         {
-            list.AsUdonList().SetCapacity(capacity);
+            UdonGenericList.SetCapacity(list.AsObjectArray(), capacity);
         }
 
-        public static int GetCount(this UdonCharList list)
+        public static int Count(this UdonCharList list)
         {
-            return list.AsUdonList().GetCount();
+            return UdonGenericList.Count(list.AsObjectArray());
+        }
+
+        public static void SetCount(this UdonCharList list, int count)
+        {
+            UdonGenericList.SetCount(list.AsObjectArray(), count);
         }
 
         public static char GetItem(this UdonCharList list, int index)
         {
-            return (char)list.AsUdonList().GetItem(index);
+            return UdonGenericList.GetItem<char>(list.AsObjectArray(), index);
         }
 
         public static void SetItem(this UdonCharList list, int index, char item)
         {
-            list.AsUdonList().SetItem(index, item);
+            UdonGenericList.SetItem(list.AsObjectArray(), index, item);
         }
 
         public static void Add(this UdonCharList list, char item)
         {
-            list.AsUdonList().Add(item);
+            UdonGenericList.Add(list.AsObjectArray(), item);
         }
 
         public static void AddRange(this UdonCharList list, char[] collection)
         {
-            list.AsUdonList().AddRange((object[])(object)collection);
+            UdonGenericList.AddRange(list.AsObjectArray(), collection);
         }
 
         public static void Clear(this UdonCharList list)
         {
-            list.AsUdonList().Clear();
+            UdonGenericList.Clear(list.AsObjectArray());
         }
 
         public static bool Contains(this UdonCharList list, char item)
         {
-            return list.AsUdonList().Contains(item);
-        }
-
-        public static void CopyTo(this UdonCharList list, int index, char[] array, int arrayIndex, int count)
-        {
-            for (var i = 0; i < count; i++)
-            {
-                array[arrayIndex + i] = list.GetItem(index + i);
-            }
+            return UdonGenericList.Contains(list.AsObjectArray(), item);
         }
 
         public static void CopyTo(this UdonCharList list, char[] array)
         {
-            list.CopyTo(0, array, 0, list.GetCount());
+            UdonGenericList.CopyTo(list.AsObjectArray(), array);
         }
 
-        public static void CopyTo(this UdonCharList list, char[] array, int arrayIndex)
+        public static void CopyTo(this UdonCharList list, int index, char[] array, int arrayIndex, int count)
         {
-            list.CopyTo(0, array, 0, arrayIndex);
+            UdonGenericList.CopyTo(list.AsObjectArray(), index, array, arrayIndex, count);
+        }
+
+        public static void CopyTo(UdonCharList list, char[] array, int arrayIndex)
+        {
+            UdonGenericList.CopyTo(list.AsObjectArray(), array, arrayIndex);
         }
 
         public static int EnsureCapacity(this UdonCharList list, int capacity)
         {
-            return list.AsUdonList().EnsureCapacity(capacity);
+            return UdonGenericList.EnsureCapacity(list.AsObjectArray(), capacity);
         }
 
         public static UdonCharList GetRange(this UdonCharList list, int index, int count)
         {
-            return (UdonCharList)(object)list.AsUdonList().GetRange(index, count);
+            return (UdonCharList)(object)UdonGenericList.GetRange(list.AsObjectArray(), index, count);
+        }
+
+        public static UdonCharList Slice(this UdonCharList list, int start, int length)
+        {
+            return (UdonCharList)(object)UdonGenericList.Slice(list.AsObjectArray(), start, length);
         }
 
         public static int IndexOf(this UdonCharList list, char item)
         {
-            return list.AsUdonList().IndexOf(item);
+            return UdonGenericList.IndexOf(list.AsObjectArray(), item);
         }
 
         public static int IndexOf(this UdonCharList list, char item, int index)
         {
-            return list.AsUdonList().IndexOf(item, index);
+            return UdonGenericList.IndexOf(list.AsObjectArray(), item, index);
         }
 
         public static int IndexOf(this UdonCharList list, char item, int index, int count)
         {
-            return list.AsUdonList().IndexOf(item, index, count);
+            return UdonGenericList.IndexOf(list.AsObjectArray(), item, index, count);
         }
 
         public static void Insert(this UdonCharList list, int index, char item)
         {
-            list.AsUdonList().Insert(index, item);
+            UdonGenericList.Insert(list.AsObjectArray(), index, item);
         }
 
-        public static void InsertRange(this UdonCharList list, int index, char[] items)
+        public static void InsertRange(this UdonCharList list, int index, char[] collection)
         {
-            list.AsUdonList().InsertRange(index, (object[])(object)items);
+            UdonGenericList.InsertRange(list.AsObjectArray(), index, collection);
         }
 
         public static int LastIndexOf(this UdonCharList list, char item)
         {
-            return list.AsUdonList().LastIndexOf(item);
+            return UdonGenericList.LastIndexOf(list.AsObjectArray(), item);
         }
 
         public static int LastIndexOf(this UdonCharList list, char item, int index)
         {
-            return list.AsUdonList().LastIndexOf(item, index);
+            return UdonGenericList.LastIndexOf(list.AsObjectArray(), item, index);
         }
 
         public static int LastIndexOf(this UdonCharList list, char item, int index, int count)
         {
-            return list.AsUdonList().LastIndexOf(item, index, count);
+            return UdonGenericList.LastIndexOf(list.AsObjectArray(), item, index, count);
         }
 
         public static bool Remove(this UdonCharList list, char item)
         {
-            return list.AsUdonList().Remove(item);
+            return UdonGenericList.Remove(list.AsObjectArray(), item);
         }
 
         public static void RemoveAt(this UdonCharList list, int index)
         {
-            list.AsUdonList().RemoveAt(index);
+            UdonGenericList.RemoveAt(list.AsObjectArray(), index);
         }
 
         public static void RemoveRange(this UdonCharList list, int index, int count)
         {
-            list.AsUdonList().RemoveRange(index, count);
+            UdonGenericList.RemoveRange(list.AsObjectArray(), index, count);
         }
 
         public static char[] ToArray(this UdonCharList list)
         {
-            var array = new char[list.GetCount()];
-            list.CopyTo(array);
-            return array;
+            return UdonGenericList.ToArray<char>(list.AsObjectArray());
         }
 
-        public static UdonList AsUdonList(this UdonCharList list)
+        public static void TrimExcess(this UdonCharList list)
         {
-            return ((UdonList)(object)(list));
+            UdonGenericList.TrimExcess(list.AsObjectArray());
+        }
+
+        private static object[] AsObjectArray(this UdonCharList list)
+        {
+            return (object[])(object)list;
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Koyashiro.UdonList.Tests
         public void Start()
         {
             var list = UdonByteList.New();
-            list.Add(100);
-            list.Add(101);
-            list.Add(102);
+            list.Add((byte)100);
+            list.Add((byte)101);
+            list.Add((byte)102);
             Assert.Equal((byte)100, list.GetItem(0));
             Assert.Equal((byte)101, list.GetItem(1));
             Assert.Equal((byte)102, list.GetItem(2));
@@ -22,7 +22,7 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal((byte)100, list.GetItem(0));
             Assert.Equal((byte)102, list.GetItem(1));
             Assert.Equal(new byte[] { 100, 102 }, list.ToArray());
-            list.SetItem(1, 101);
+            list.SetItem(1, (byte)101);
             Assert.Equal(new byte[] { 100, 101 }, list.ToArray());
         }
     }

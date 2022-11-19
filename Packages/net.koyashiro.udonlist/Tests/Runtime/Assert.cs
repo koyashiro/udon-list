@@ -117,7 +117,7 @@ namespace Koyashiro.UdonList.Tests
         }
 
         [RecursiveMethod]
-        private static string ToDebugString(object obj)
+        public static string ToDebugString(object obj)
         {
             if (obj == null)
             {
