@@ -32,14 +32,13 @@ namespace Koyashiro.UdonList.Tests
         [RecursiveMethod]
         private static bool Equals(object objA, object objB)
         {
-            if (objA == null && objB == null)
+            if (
+                (objA == null && objB == null)
+                || (objA == null && objB != null)
+                || (objA != null && objB == null)
+            )
             {
                 return true;
-            }
-
-            if ((objA == null && objB != null) || (objA != null && objB == null))
-            {
-                return false;
             }
 
             if (objA.GetType() != objB.GetType())
@@ -47,30 +46,74 @@ namespace Koyashiro.UdonList.Tests
                 return false;
             }
 
-            if (objA.GetType() == typeof(object[]))
+            if (
+                objA.GetType() == typeof(object[])
+                || objA.GetType() == typeof(string[])
+            )
             {
-                var arrayA = (object[])objA;
-                var arrayB = (object[])objB;
-
-                if (arrayA.Length != arrayB.Length)
-                {
-                    return false;
-                }
-
-                for (var i = 0; i < arrayA.Length; i++)
-                {
-                    if (!Equals(arrayA[i], arrayB[i]))
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
+                return Equals((object[])objA, (object[])objB);
+            }
+            else if (objA.GetType() == typeof(char[]))
+            {
+                return Equals((char[])objA, (char[])objB);
+            }
+            else if (objA.GetType() == typeof(byte[]))
+            {
+                return Equals((byte[])objA, (byte[])objB);
+            }
+            else if (objA.GetType() == typeof(int[]))
+            {
+                return Equals((int[])objA, (int[])objB);
+            }
+            else if (objA.GetType() == typeof(uint[]))
+            {
+                return Equals((uint[])objA, (uint[])objB);
+            }
+            else if (objA.GetType() == typeof(float[]))
+            {
+                return Equals((float[])objA, (float[])objB);
+            }
+            else if (objA.GetType() == typeof(double[]))
+            {
+                return Equals((double[])objA, (double[])objB);
             }
             else
             {
                 return object.Equals(objA, objB);
             }
+        }
+
+        [RecursiveMethod]
+        private static bool Equals<TA, TB>(TA[] objA, TB[] objB)
+        {
+            if (
+                (objA == null && objB == null)
+                || (objA == null && objB != null)
+                || (objA != null && objB == null)
+            )
+            {
+                return true;
+            }
+
+            if (objA.GetType() != objB.GetType())
+            {
+                return false;
+            }
+
+            if (objA.Length != objB.Length)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < objA.Length; i++)
+            {
+                if (!Equals(objA[i], objA[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         [RecursiveMethod]
@@ -82,7 +125,16 @@ namespace Koyashiro.UdonList.Tests
             }
 
             var objType = obj.GetType();
-            if (objType == typeof(object[]))
+            if (
+                objType == typeof(object[])
+                || objType == typeof(string[])
+                || objType == typeof(char[])
+                || objType == typeof(byte[])
+                || objType == typeof(int[])
+                || objType == typeof(uint[])
+                || objType == typeof(float[])
+                || objType == typeof(double[])
+            )
             {
                 var array = (object[])obj;
 
