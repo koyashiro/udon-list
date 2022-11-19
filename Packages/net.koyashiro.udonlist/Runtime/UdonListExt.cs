@@ -1,5 +1,3 @@
-using System;
-
 namespace Koyashiro.UdonList
 {
     public static class UdonListExt
@@ -89,7 +87,7 @@ namespace Koyashiro.UdonList
         {
             for (var i = 0; i < count; i++)
             {
-                array[arrayIndex + i] = list.GetItem(index + 1);
+                array[arrayIndex + i] = list.GetItem(index + i);
             }
         }
 
