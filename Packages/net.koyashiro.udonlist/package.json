@@ -17,14 +17,15 @@
     "type": "git",
     "url": "https://github.com/koyashiro/udon-list"
   },
-  "vpmDependencies": {
-    "com.vrchat.udonsharp": "1.1.5"
-  },
   "samples": [
     {
       "displayName": "UdonListSample",
       "description": "Sample of UdonList.",
       "path": "Samples~/UdonListSample"
     }
-  ]
+  ],
+  "url": "https://github.com/koyashiro/udon-list/releases/download/v0.2.1/net.koyashiro.udonlist-0.2.1.zip",
+  "vpmDependencies": {
+    "com.vrchat.udonsharp": "1.1.5"
+  }
 }
