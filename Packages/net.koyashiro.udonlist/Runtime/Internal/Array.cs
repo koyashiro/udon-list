@@ -1,5 +1,7 @@
 namespace Koyashiro.UdonList.Internal
 {
+    using Koyashiro.UdonException;
+
     public static class Array
     {
         public static int IndexOf(object[] array, object value, int startIndex, int count)

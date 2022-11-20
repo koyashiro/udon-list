@@ -8,6 +8,12 @@
     },
     "com.vrchat.core.vpm-resolver": {
       "version": "0.1.17"
+    },
+    "net.koyashiro.udontest": {
+      "version": "0.1.0"
+    },
+    "net.koyashiro.udonexception": {
+      "version": "0.1.0"
     }
   },
   "locked": {
@@ -34,6 +40,18 @@
     },
     "com.vrchat.core.vpm-resolver": {
       "version": "0.1.17"
+    },
+    "net.koyashiro.udontest": {
+      "version": "0.1.0",
+      "dependencies": {
+        "com.vrchat.udonsharp": "1.1.5"
+      }
+    },
+    "net.koyashiro.udonexception": {
+      "version": "0.1.0",
+      "dependencies": {
+        "com.vrchat.udonsharp": "1.1.5"
+      }
     }
   }
 }
