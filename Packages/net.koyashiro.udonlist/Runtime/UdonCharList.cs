@@ -1,25 +1,26 @@
 using UnityEngine;
 using UdonSharp;
-using Koyashiro.UdonList.Generic;
 
 namespace Koyashiro.UdonList
 {
+    using Koyashiro.UdonList.Internal;
+
     [AddComponentMenu("")]
     public class UdonCharList : UdonSharpBehaviour
     {
         public static UdonCharList New()
         {
-            return (UdonCharList)(object)UdonGenericList.New();
+            return (UdonCharList)(object)UdonList.New();
         }
 
         public static UdonCharList New(char[] collection)
         {
-            return (UdonCharList)(object)UdonGenericList.New(collection);
+            return (UdonCharList)(object)UdonList.New(collection);
         }
 
         public static UdonCharList New(int capacity)
         {
-            return (UdonCharList)(object)UdonGenericList.New(capacity);
+            return (UdonCharList)(object)UdonList.New(capacity);
         }
     }
 }

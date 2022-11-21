@@ -1,10 +1,8 @@
-using Koyashiro.UdonList.Internal;
-
-namespace Koyashiro.UdonList.Generic
+namespace Koyashiro.UdonList.Internal
 {
     using Koyashiro.UdonException;
 
-    public static class UdonGenericList
+    public static class UdonList
     {
         private const int DEFAULT_CAPACITY = 4;
 
