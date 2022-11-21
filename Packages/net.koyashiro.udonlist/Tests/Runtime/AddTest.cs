@@ -9,7 +9,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonList.New();
+            var list = UdonObjectList.New();
 
             list.Add(0);
             Assert.Equal(new object[] { new object[] { 0, null, null, null }, 1 }, list);
