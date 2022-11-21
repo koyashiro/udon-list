@@ -18,7 +18,6 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(100d, list.GetItem(0));
             Assert.Equal(101d, list.GetItem(1));
             Assert.Equal(102d, list.GetItem(2));
-            list.ToArray();
             Assert.Equal(new double[] { 100d, 101d, 102d }, list.ToArray());
             Assert.True(list.Remove(101d));
             Assert.False(list.Remove(103d));

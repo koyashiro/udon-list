@@ -18,7 +18,6 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(100f, list.GetItem(0));
             Assert.Equal(101f, list.GetItem(1));
             Assert.Equal(102f, list.GetItem(2));
-            list.ToArray();
             Assert.Equal(new float[] { 100f, 101f, 102f }, list.ToArray());
             Assert.True(list.Remove(101f));
             Assert.False(list.Remove(103f));

@@ -18,7 +18,6 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal('a', list.GetItem(0));
             Assert.Equal('b', list.GetItem(1));
             Assert.Equal('c', list.GetItem(2));
-            list.ToArray();
             Assert.Equal(new char[] { 'a', 'b', 'c' }, list.ToArray());
             Assert.True(list.Remove('b'));
             Assert.False(list.Remove('d'));
