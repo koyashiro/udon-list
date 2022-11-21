@@ -1,8 +1,10 @@
+using UnityEngine;
 using UdonSharp;
 using Koyashiro.UdonList.Generic;
 
 namespace Koyashiro.UdonList
 {
+    [AddComponentMenu("")]
     public class UdonFloatList : UdonSharpBehaviour
     {
         public static UdonFloatList New()
