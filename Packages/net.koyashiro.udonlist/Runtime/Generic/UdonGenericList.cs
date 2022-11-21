@@ -98,7 +98,7 @@ namespace Koyashiro.UdonList.Generic
             var size = Count(list);
             if ((uint)index >= (uint)size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                UdonException.ThrowIndexOutOfRangeException();
             }
 
             return (T)Items(list)[index];
@@ -109,7 +109,7 @@ namespace Koyashiro.UdonList.Generic
             var size = Count(list);
             if ((uint)index >= (uint)size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                UdonException.ThrowIndexOutOfRangeException();
             }
 
             var items = Items(list);
@@ -251,7 +251,7 @@ namespace Koyashiro.UdonList.Generic
             var size = Count(list);
             if (size - index < count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                UdonException.ThrowArgumentException();
             }
 
             var items = Items(list);
@@ -336,7 +336,7 @@ namespace Koyashiro.UdonList.Generic
             var size = Count(list);
             if ((uint)index > (uint)size)
             {
-                UdonException.ThrowArgumentNullException(nameof(collection));
+                UdonException.ThrowArgumentOutOfRangeException();
             }
 
             if (collection.Length > 0)
