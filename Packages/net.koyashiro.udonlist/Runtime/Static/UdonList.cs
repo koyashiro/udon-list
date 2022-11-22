@@ -370,7 +370,7 @@ namespace Koyashiro.UdonList.Static
                 Array.Copy(collection, items, index);
             }
 
-            list[1] = collection.Length;
+            list[1] = size + collection.Length;
         }
 
         public static int LastIndexOf<T>(object[] list, T item)
