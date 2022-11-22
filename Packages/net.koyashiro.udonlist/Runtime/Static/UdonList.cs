@@ -1,6 +1,7 @@
-namespace Koyashiro.UdonList.Internal
+namespace Koyashiro.UdonList.Static
 {
     using Koyashiro.UdonException;
+    using Koyashiro.UdonList.Internal;
 
     public static class UdonList
     {
