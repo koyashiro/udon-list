@@ -147,11 +147,11 @@ namespace Koyashiro.UdonList.Static
 
             if (items.Length - size < collection.Length)
             {
-                Grow(list, size + items.Length);
+                Grow(list, size + collection.Length);
                 items = (object[])list[0];
             }
 
-            Array.Copy(collection, items, collection.Length);
+            Array.Copy(collection, 0, items, size, collection.Length);
             list[1] = size + items.Length;
         }
 
@@ -224,7 +224,7 @@ namespace Koyashiro.UdonList.Static
         private static void Grow(object[] list, int capacity)
         {
             var items = (object[])list[0];
-            int newCapacity = items.Length == 0 ? DEFAULT_CAPACITY : items.Length * 2;
+            int newCapacity = items.Length == 0 ? DEFAULT_CAPACITY : 2 * items.Length;
 
             if (newCapacity < capacity)
             {
