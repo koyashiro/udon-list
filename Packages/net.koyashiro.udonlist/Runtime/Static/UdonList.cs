@@ -344,7 +344,7 @@ namespace Koyashiro.UdonList.Static
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            if (collection.Length <= 0)
+            if (collection.Length == 0)
             {
                 return;
             }
@@ -431,13 +431,13 @@ namespace Koyashiro.UdonList.Static
         public static bool Remove<T>(object[] list, T item)
         {
             var index = IndexOf(list, item);
-            if (index >= 0)
+            if (index < 0)
             {
-                RemoveAt(list, index);
-                return true;
+                return false;
             }
 
-            return false;
+            RemoveAt(list, index);
+            return true;
         }
 
         public static void RemoveAt(object[] list, int index)
@@ -480,7 +480,7 @@ namespace Koyashiro.UdonList.Static
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            if (count <= 0)
+            if (count == 0)
             {
                 return;
             }
