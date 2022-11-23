@@ -75,7 +75,7 @@ namespace Koyashiro.UdonList.Static
             }
 
             var newItems = new object[capacity];
-            Array.Copy(items, newItems, size);
+            Array.Copy<object>(items, newItems, size);
             list[0] = newItems;
         }
 
@@ -255,7 +255,7 @@ namespace Koyashiro.UdonList.Static
             }
 
             var newItems = new object[count];
-            Array.Copy(items, index, newItems, 0, count);
+            Array.Copy<object>(items, index, newItems, 0, count);
 
             return new object[] { newItems, count };
         }
@@ -322,7 +322,7 @@ namespace Koyashiro.UdonList.Static
 
             if (index < size)
             {
-                Array.Copy(items, index, items, index + 1, size - index);
+                Array.Copy<object>(items, index, items, index + 1, size - index);
             }
 
             items[index] = item;
@@ -357,13 +357,13 @@ namespace Koyashiro.UdonList.Static
 
             if (index < size)
             {
-                Array.Copy(items, index, items, index + collection.Length, size - index);
+                Array.Copy<object>(items, index, items, index + collection.Length, size - index);
             }
 
             if (object.Equals(list, collection))
             {
-                Array.Copy(items, 0, items, index, index);
-                Array.Copy(items, index + collection.Length, items, index * 2, size - index);
+                Array.Copy<object>(items, 0, items, index, index);
+                Array.Copy<object>(items, index + collection.Length, items, index * 2, size - index);
             }
             else
             {
@@ -454,7 +454,7 @@ namespace Koyashiro.UdonList.Static
 
             if (index < size)
             {
-                Array.Copy(items, index + 1, items, index, size - index);
+                Array.Copy<object>(items, index + 1, items, index, size - index);
             }
 
             list[1] = size;
@@ -488,7 +488,7 @@ namespace Koyashiro.UdonList.Static
             size -= count;
             if (index < size)
             {
-                Array.Copy(items, index + count, items, index, size - index);
+                Array.Copy<object>(items, index + count, items, index, size - index);
             }
 
             list[1] = size;

@@ -79,25 +79,23 @@ namespace Koyashiro.UdonList.Internal
             // return -1;
         }
 
+        public static void Copy<T>(T[] sourceArray, T[] destinationArray, int length)
+        {
+            System.Array.Copy(sourceArray, destinationArray, length);
+        }
+
         public static void Copy<TS, TD>(TS[] sourceArray, TD[] destinationArray, int length)
         {
-            if (typeof(TS) == typeof(TD))
-            {
-                System.Array.Copy(sourceArray, destinationArray, length);
-                return;
-            }
-
             Copy(sourceArray, 0, destinationArray, 0, length);
+        }
+
+        public static void Copy<T>(T[] sourceArray, int sourceIndex, T[] destinationArray, int destinationIndex, int length)
+        {
+            System.Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
 
         public static void Copy<TS, TD>(TS[] sourceArray, int sourceIndex, TD[] destinationArray, int destinationIndex, int length)
         {
-            if (typeof(TS) == typeof(TD))
-            {
-                System.Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
-                return;
-            }
-
             if (sourceArray == null)
             {
                 UdonException.ThrowArgumentNullException(nameof(sourceArray));
