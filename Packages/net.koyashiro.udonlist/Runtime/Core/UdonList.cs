@@ -1,6 +1,6 @@
 using System;
 
-namespace Koyashiro.UdonList.Static
+namespace Koyashiro.UdonList.Core
 {
     using Koyashiro.UdonException;
 

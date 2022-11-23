@@ -3,7 +3,7 @@ using UdonSharp;
 
 namespace Koyashiro.UdonList
 {
-    using Koyashiro.UdonList.Static;
+    using Koyashiro.UdonList.Core;
 
     [AddComponentMenu("")]
     public class UdonFloatList : UdonSharpBehaviour

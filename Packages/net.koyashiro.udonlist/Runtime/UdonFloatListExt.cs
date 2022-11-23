@@ -1,6 +1,6 @@
 namespace Koyashiro.UdonList
 {
-    using Koyashiro.UdonList.Static;
+    using Koyashiro.UdonList.Core;
 
     public static class UdonFloatListExt
     {
