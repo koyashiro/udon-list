@@ -1,7 +1,8 @@
+using System;
+
 namespace Koyashiro.UdonList.Static
 {
     using Koyashiro.UdonException;
-    using Koyashiro.UdonList.Internal;
 
     public static class UdonList
     {
@@ -187,7 +188,7 @@ namespace Koyashiro.UdonList.Static
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            Array.Copy(items, index, array, arrayIndex, count);
+            Internal.Array.Copy(items, index, array, arrayIndex, count);
         }
 
         public static void CopyTo<T>(object[] list, T[] array, int arrayIndex)
@@ -200,7 +201,7 @@ namespace Koyashiro.UdonList.Static
             var items = (object[])list[0];
             var size = (int)list[1];
 
-            Array.Copy(items, 0, array, arrayIndex, size);
+            Internal.Array.Copy(items, 0, array, arrayIndex, size);
         }
 
         public static int EnsureCapacity(object[] list, int capacity)
@@ -505,7 +506,7 @@ namespace Koyashiro.UdonList.Static
             }
 
             var array = new T[size];
-            Array.Copy(items, array, size);
+            Internal.Array.Copy(items, array, size);
 
             return array;
         }
