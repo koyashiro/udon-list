@@ -13,7 +13,7 @@ namespace Koyashiro.UdonList
             return (UdonStringList)(object)UdonList.New();
         }
 
-        public static UdonStringList New(char[] collection)
+        public static UdonStringList New(string[] collection)
         {
             return (UdonStringList)(object)UdonList.New(collection);
         }
