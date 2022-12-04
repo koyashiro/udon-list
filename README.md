@@ -29,7 +29,7 @@ public class UdonListSample : UdonSharpBehaviour
         var convertedList = UdonStringList.New(convertedArray);
 
         //Alternative foreach
-        for (int i = 0; i < convertedList.Count(); i++)
+        for (var i = 0; i < convertedList.Count(); i++)
         {
             Debug.Log(list.GetItem(i)); // "first", "third"
         }
