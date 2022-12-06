@@ -26,6 +26,15 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(new bool[] { true, true }, list.ToArray());
             list.SetItem(1, false);
             Assert.Equal(new bool[] { true, false }, list.ToArray());
+
+            list = UdonBoolList.New(new bool[] { false, true, true, false, true });
+            list.Reverse();
+            Assert.Equal(new bool[] { true, false, true, true, false }, list.ToArray());
+            list.Reverse(1, 3);
+            Assert.Equal(new bool[] { true, true, true, false, false }, list.ToArray());
+
+            list.Sort();
+            Assert.Equal(new bool[] { false, false, true, true, true }, list.ToArray());
         }
     }
 }

@@ -26,6 +26,15 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(new byte[] { 100, 102 }, list.ToArray());
             list.SetItem(1, (byte)101);
             Assert.Equal(new byte[] { 100, 101 }, list.ToArray());
+
+            list = UdonByteList.New(new byte[] { 0, 1, 2, 3, 4 });
+            list.Reverse();
+            Assert.Equal(new byte[] { 4, 3, 2, 1, 0 }, list.ToArray());
+            list.Reverse(1, 3);
+            Assert.Equal(new byte[] { 4, 1, 2, 3, 0 }, list.ToArray());
+
+            list.Sort();
+            Assert.Equal(new byte[] { 0, 1, 2, 3, 4 }, list.ToArray());
         }
     }
 }

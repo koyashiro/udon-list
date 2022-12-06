@@ -139,6 +139,26 @@ namespace Koyashiro.UdonList
             UdonList.RemoveRange(list.AsObjectArray(), index, count);
         }
 
+        public static void Reverse(this UdonByteList list)
+        {
+            UdonList.Reverse(list.AsObjectArray());
+        }
+
+        public static void Reverse(this UdonByteList list, int index, int count)
+        {
+            UdonList.Reverse(list.AsObjectArray(), index, count);
+        }
+
+        public static void Sort(this UdonByteList list)
+        {
+            UdonList.Sort<byte>(list.AsObjectArray());
+        }
+
+        public static void Sort(this UdonByteList list, int index, int count)
+        {
+            UdonList.Sort<byte>(list.AsObjectArray(), index, count);
+        }
+
         public static byte[] ToArray(this UdonByteList list)
         {
             return UdonList.ToArray<byte>(list.AsObjectArray());

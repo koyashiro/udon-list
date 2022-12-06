@@ -26,6 +26,15 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(new float[] { 100f, 102f }, list.ToArray());
             list.SetItem(1, 101f);
             Assert.Equal(new float[] { 100f, 101f }, list.ToArray());
+
+            list = UdonFloatList.New(new float[] { 0f, 1f, 2f, 3f, 4f });
+            list.Reverse();
+            Assert.Equal(new float[] { 4f, 3f, 2f, 1f, 0f }, list.ToArray());
+            list.Reverse(1, 3);
+            Assert.Equal(new float[] { 4f, 1f, 2f, 3f, 0f }, list.ToArray());
+
+            list.Sort();
+            Assert.Equal(new float[] { 0f, 1f, 2f, 3f, 4f }, list.ToArray());
         }
     }
 }
