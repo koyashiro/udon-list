@@ -26,6 +26,15 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(new double[] { 100d, 102d }, list.ToArray());
             list.SetItem(1, 101d);
             Assert.Equal(new double[] { 100d, 101d }, list.ToArray());
+
+            list = UdonDoubleList.New(new double[] { 0d, 1d, 2d, 3d, 4d });
+            list.Reverse();
+            Assert.Equal(new double[] { 4d, 3d, 2d, 1d, 0d }, list.ToArray());
+            list.Reverse(1, 3);
+            Assert.Equal(new double[] { 4d, 1d, 2d, 3d, 0d }, list.ToArray());
+
+            list.Sort();
+            Assert.Equal(new double[] { 0d, 1d, 2d, 3d, 4d }, list.ToArray());
         }
     }
 }

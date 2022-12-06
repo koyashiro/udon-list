@@ -495,6 +495,64 @@ namespace Koyashiro.UdonList.Core
             list[1] = size;
         }
 
+        public static void Reverse(object[] list)
+        {
+            var size = (int)list[1];
+
+            Reverse(list, 0, size);
+        }
+
+        public static void Reverse(object[] list, int index, int count)
+        {
+            if (index < 0)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            if (count < 0)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            var size = (int)list[1];
+            if (size - index < count)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            var items = (object[])list[0];
+
+            Array.Reverse(items, index, count);
+        }
+
+        public static void Sort<T>(object[] list) where T : IComparable
+        {
+            var size = (int)list[1];
+
+            Sort<T>(list, 0, size);
+        }
+
+        public static void Sort<T>(object[] list, int index, int count) where T : IComparable
+        {
+            if (index < 0)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            if (count < 0)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            var size = (int)list[1];
+            if (size - index < count)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            HeapSort<T>(list, index, count);
+        }
+
         public static T[] ToArray<T>(object[] list)
         {
             var items = (object[])list[0];
@@ -524,6 +582,79 @@ namespace Koyashiro.UdonList.Core
             }
 
             SetCapacity(list, size);
+        }
+
+        private static void HeapSort<T>(object[] list, int index, int count) where T : IComparable
+        {
+            var items = (object[])list[0];
+
+            for (int i = index + 1, _t = index + count; i < _t; i++)
+            {
+                var j = i;
+                while (j > 0)
+                {
+                    var _j = (j - 1) / 2;
+                    var _p = items[_j];
+                    var _c = items[j];
+                    if (((T)_p).CompareTo(_c) < 0)
+                    {
+                        items[_j] = _c;
+                        items[j] = _p;
+
+                        j = _j;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (var i = index + count - 1; i > index; i--)
+            {
+                {
+                    var tmp = items[0];
+                    items[0] = items[i];
+                    items[i] = tmp;
+                }
+
+                var j = 0;
+                var k = 0;
+
+                while (true)
+                {
+                    var left = 2 * j + 1;
+                    var right = left + 1;
+
+                    if (left >= i)
+                    {
+                        break;
+                    }
+
+                    if (((T)items[left]).CompareTo(items[k]) > 0)
+                    {
+                        k = left;
+                    }
+
+                    if (right < i && ((T)items[right]).CompareTo(items[k]) > 0)
+                    {
+                        k = right;
+                    }
+
+                    if (k == j)
+                    {
+                        break;
+                    }
+
+                    {
+                        var tmp = items[k];
+                        items[k] = items[j];
+                        items[j] = tmp;
+                    }
+
+                    j = k;
+                }
+            }
         }
     }
 }
