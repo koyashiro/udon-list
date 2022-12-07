@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: InsertTest
+  m_Name: UdonSbyteListTest
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 1cecac72d789ac5479b5375ae34d67d9,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 7381713a54ed8a0468dd9753863feeee,
     type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: c34213e27de2dde44bfeb32fb3bc8a42, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: f14350d93c08dc644bf83a2dc0eaa6c7, type: 3}
   scriptVersion: 2
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: 4407131949743663590
+  scriptID: -8153188145792794309
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
