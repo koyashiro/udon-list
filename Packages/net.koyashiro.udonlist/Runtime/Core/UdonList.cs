@@ -153,7 +153,7 @@ namespace Koyashiro.UdonList.Core
             }
 
             Array.Copy(collection, 0, items, size, collection.Length);
-            list[1] = size + items.Length;
+            list[1] = size + collection.Length;
         }
 
         public static void Clear(object[] list)
