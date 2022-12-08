@@ -10,7 +10,7 @@ namespace Koyashiro.UdonList
     {
         public static UdonStringList New()
         {
-            return (UdonStringList)(object)UdonList.New();
+            return (UdonStringList)(object)UdonList.New<string>();
         }
 
         public static UdonStringList New(string[] collection)
@@ -20,7 +20,7 @@ namespace Koyashiro.UdonList
 
         public static UdonStringList New(int capacity)
         {
-            return (UdonStringList)(object)UdonList.New(capacity);
+            return (UdonStringList)(object)UdonList.New<string>(capacity);
         }
     }
 }

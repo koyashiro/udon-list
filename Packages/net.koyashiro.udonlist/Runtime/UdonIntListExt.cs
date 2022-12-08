@@ -19,11 +19,6 @@ namespace Koyashiro.UdonList
             return UdonList.Count(list.AsObjectArray());
         }
 
-        public static void SetCount(this UdonIntList list, int count)
-        {
-            UdonList.SetCount(list.AsObjectArray(), count);
-        }
-
         public static int GetItem(this UdonIntList list, int index)
         {
             return UdonList.GetItem<int>(list.AsObjectArray(), index);
@@ -77,11 +72,6 @@ namespace Koyashiro.UdonList
         public static UdonIntList GetRange(this UdonIntList list, int index, int count)
         {
             return (UdonIntList)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
-        }
-
-        public static UdonIntList Slice(this UdonIntList list, int start, int length)
-        {
-            return (UdonIntList)(object)UdonList.Slice(list.AsObjectArray(), start, length);
         }
 
         public static int IndexOf(this UdonIntList list, int item)

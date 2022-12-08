@@ -10,7 +10,7 @@ namespace Koyashiro.UdonList
     {
         public static UdonDecimalList New()
         {
-            return (UdonDecimalList)(object)UdonList.New();
+            return (UdonDecimalList)(object)UdonList.New<decimal>();
         }
 
         public static UdonDecimalList New(decimal[] collection)
@@ -20,7 +20,7 @@ namespace Koyashiro.UdonList
 
         public static UdonDecimalList New(int capacity)
         {
-            return (UdonDecimalList)(object)UdonList.New(capacity);
+            return (UdonDecimalList)(object)UdonList.New<decimal>(capacity);
         }
     }
 }

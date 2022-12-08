@@ -10,7 +10,7 @@ namespace Koyashiro.UdonList
     {
         public static UdonBoolList New()
         {
-            return (UdonBoolList)(object)UdonList.New();
+            return (UdonBoolList)(object)UdonList.New<bool>();
         }
 
         public static UdonBoolList New(bool[] collection)
@@ -20,7 +20,7 @@ namespace Koyashiro.UdonList
 
         public static UdonBoolList New(int capacity)
         {
-            return (UdonBoolList)(object)UdonList.New(capacity);
+            return (UdonBoolList)(object)UdonList.New<bool>(capacity);
         }
     }
 }

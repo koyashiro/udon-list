@@ -19,11 +19,6 @@ namespace Koyashiro.UdonList
             return UdonList.Count(list.AsObjectArray());
         }
 
-        public static void SetCount(this UdonDecimalList list, int count)
-        {
-            UdonList.SetCount(list.AsObjectArray(), count);
-        }
-
         public static decimal GetItem(this UdonDecimalList list, int index)
         {
             return UdonList.GetItem<decimal>(list.AsObjectArray(), index);
@@ -77,11 +72,6 @@ namespace Koyashiro.UdonList
         public static UdonDecimalList GetRange(this UdonDecimalList list, int index, int count)
         {
             return (UdonDecimalList)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
-        }
-
-        public static UdonDecimalList Slice(this UdonDecimalList list, int start, int length)
-        {
-            return (UdonDecimalList)(object)UdonList.Slice(list.AsObjectArray(), start, length);
         }
 
         public static int IndexOf(this UdonDecimalList list, decimal item)
