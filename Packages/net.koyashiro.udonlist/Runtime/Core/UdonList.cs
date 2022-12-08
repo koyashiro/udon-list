@@ -513,8 +513,9 @@ namespace Koyashiro.UdonList.Core
         public static void Sort<T>(object[] list) where T : IComparable
         {
             var items = (T[])list[0];
+            var size = (int)list[1];
 
-            HeapSort(items);
+            HeapSort(items, size);
         }
 
         public static void Sort<T>(object[] list, int index, int count) where T : IComparable
@@ -642,11 +643,9 @@ namespace Koyashiro.UdonList.Core
             }
         }
 
-        private static void HeapSort<T>(T[] array) where T : IComparable
+        private static void HeapSort<T>(T[] array, int count) where T : IComparable
         {
-            var count = array.Length;
-
-            for (int i = 1, _t = count; i < _t; i++)
+            for (int i = 1; i < count; i++)
             {
                 var j = i;
                 while (j > 0)
