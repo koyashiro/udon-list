@@ -2,9 +2,7 @@ using System;
 
 namespace Koyashiro.UdonList.Core
 {
-    using Codice.Client.BaseCommands.BranchExplorer;
     using Koyashiro.UdonException;
-    using System.Diagnostics;
 
     public static class UdonList
     {
