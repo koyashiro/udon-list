@@ -64,11 +64,6 @@ namespace Koyashiro.UdonList
             UdonList.CopyTo(list.AsObjectArray(), array, arrayIndex);
         }
 
-        public static int EnsureCapacity(this UdonDecimalList list, int capacity)
-        {
-            return UdonList.EnsureCapacity(list.AsObjectArray(), capacity);
-        }
-
         public static UdonDecimalList GetRange(this UdonDecimalList list, int index, int count)
         {
             return (UdonDecimalList)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
