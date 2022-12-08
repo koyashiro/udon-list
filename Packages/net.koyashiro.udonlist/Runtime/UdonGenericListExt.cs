@@ -147,12 +147,12 @@ namespace Koyashiro.UdonList
 
         public static void Sort<T>(this UdonGenericList list) where T : IComparable
         {
-            UdonList.Sort<T>(list.AsObjectArray());
+            UdonException.UdonException.ThrowNotSupportedException();
         }
 
         public static void Sort<T>(this UdonGenericList list, int index, int count) where T : IComparable
         {
-            UdonList.Sort<T>(list.AsObjectArray(), index, count);
+            UdonException.UdonException.ThrowNotSupportedException();
         }
 
         public static T[] ToArray<T>(this UdonGenericList list)
