@@ -203,6 +203,24 @@ namespace Koyashiro.UdonList.Core
             Array.Copy(items, 0, array, arrayIndex, size);
         }
 
+        public static int EnsureCapacity(object[] list, int capacity)
+        {
+            if (capacity < 0)
+            {
+                UdonException.ThrowArgumentOutOfRangeException();
+            }
+
+            var items = (Array)list[0];
+
+            if (items.Length > capacity)
+            {
+                Grow(list, capacity);
+                items = (Array)list[0];
+            }
+
+            return items.Length;
+        }
+
         private static void Grow(object[] list, int capacity)
         {
             var items = (Array)list[0];
@@ -242,6 +260,11 @@ namespace Koyashiro.UdonList.Core
             Array.Copy(items, index, newItems, 0, count);
 
             return new object[] { newItems, count, type };
+        }
+
+        public static object[] Slice(object[] list, int start, int length)
+        {
+            return GetRange(list, start, length);
         }
 
         public static int IndexOf<T>(object[] list, T item)

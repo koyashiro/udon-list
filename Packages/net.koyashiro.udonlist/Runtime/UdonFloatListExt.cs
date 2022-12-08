@@ -64,9 +64,19 @@ namespace Koyashiro.UdonList
             UdonList.CopyTo(list.AsObjectArray(), array, arrayIndex);
         }
 
+        public static int EnsureCapacity(this UdonFloatList list, int capacity)
+        {
+            return UdonList.EnsureCapacity(list.AsObjectArray(), capacity);
+        }
+
         public static UdonFloatList GetRange(this UdonFloatList list, int index, int count)
         {
             return (UdonFloatList)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
+        }
+
+        public static UdonFloatList Slice(this UdonFloatList list, int start, int length)
+        {
+            return (UdonFloatList)(object)UdonList.Slice(list.AsObjectArray(), start, length);
         }
 
         public static int IndexOf(this UdonFloatList list, float item)
