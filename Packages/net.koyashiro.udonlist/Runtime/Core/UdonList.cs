@@ -212,7 +212,7 @@ namespace Koyashiro.UdonList.Core
 
             var items = (Array)list[0];
 
-            if (items.Length > capacity)
+            if (items.Length < capacity)
             {
                 Grow(list, capacity);
                 items = (Array)list[0];
@@ -224,14 +224,18 @@ namespace Koyashiro.UdonList.Core
         private static void Grow(object[] list, int capacity)
         {
             var items = (Array)list[0];
-            int newCapacity = items.Length == 0 ? DEFAULT_CAPACITY : 2 * items.Length;
 
-            if (newCapacity < capacity)
+            if (items.Length < capacity)
             {
-                newCapacity = capacity;
-            }
+                int newCapacity = items.Length == 0 ? DEFAULT_CAPACITY : 2 * items.Length;
 
-            SetCapacity(list, newCapacity);
+                if (newCapacity < capacity)
+                {
+                    newCapacity = capacity;
+                }
+
+                SetCapacity(list, newCapacity);
+            }
         }
 
         public static object[] GetRange(object[] list, int index, int count)
