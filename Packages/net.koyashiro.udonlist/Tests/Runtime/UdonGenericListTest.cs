@@ -40,7 +40,7 @@ namespace Koyashiro.UdonList.Tests
             }
             guidList.Sort<Guid>();
             var sortedGuidArray = guidList.ToArray<Guid>();
-            System.Array.Reverse(sortedGuidArray, 0, sortedGuidArray.Length);
+            Array.Reverse(sortedGuidArray, 0, sortedGuidArray.Length);
             guidList.Reverse();
             Assert.Equal(sortedGuidArray, guidList.ToArray<Guid>(), this);
         }
