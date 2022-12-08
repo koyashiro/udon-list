@@ -19,7 +19,7 @@ public class UdonListSample : UdonSharpBehaviour
         var list = UdonStringList.New(); // Same as C# "new List<string>()";
         list.Add("first");     // ["first"]
         list.Add("second");    // ["first", "second"]
-        list.Add("third");     // ["first", "second","third"]
+        list.Add("third");     // ["first", "second", "third"]
         list.Remove("second"); // ["first", "third"]
 
         // List to array
