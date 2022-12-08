@@ -6,7 +6,6 @@ using Koyashiro.UdonTest;
 namespace Koyashiro.UdonList.Tests
 {
     using Koyashiro.UdonList;
-    using UnityEditor;
 
     [AddComponentMenu("")]
     public class UdonGenericListTest : UdonSharpBehaviour
