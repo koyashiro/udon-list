@@ -15,26 +15,26 @@ namespace Koyashiro.UdonList.Tests
             list.Add(100);
             list.Add(101);
             list.Add(102);
-            Assert.Equal(100, list.GetItem(0));
-            Assert.Equal(101, list.GetItem(1));
-            Assert.Equal(102, list.GetItem(2));
-            Assert.Equal(new int[] { 100, 101, 102 }, list.ToArray());
-            Assert.True(list.Remove(101));
-            Assert.False(list.Remove(103));
-            Assert.Equal(100, list.GetItem(0));
-            Assert.Equal(102, list.GetItem(1));
-            Assert.Equal(new int[] { 100, 102 }, list.ToArray());
+            Assert.Equal(100, list.GetItem(0), this);
+            Assert.Equal(101, list.GetItem(1), this);
+            Assert.Equal(102, list.GetItem(2), this);
+            Assert.Equal(new int[] { 100, 101, 102 }, list.ToArray(), this);
+            Assert.True(list.Remove(101), this);
+            Assert.False(list.Remove(103), this);
+            Assert.Equal(100, list.GetItem(0), this);
+            Assert.Equal(102, list.GetItem(1), this);
+            Assert.Equal(new int[] { 100, 102 }, list.ToArray(), this);
             list.SetItem(1, 101);
-            Assert.Equal(new int[] { 100, 101 }, list.ToArray());
+            Assert.Equal(new int[] { 100, 101 }, list.ToArray(), this);
 
             list = UdonIntList.New(new int[] { 0, 1, 2, 3, 4 });
             list.Reverse();
-            Assert.Equal(new int[] { 4, 3, 2, 1, 0 }, list.ToArray());
+            Assert.Equal(new int[] { 4, 3, 2, 1, 0 }, list.ToArray(), this);
             list.Reverse(1, 3);
-            Assert.Equal(new int[] { 4, 1, 2, 3, 0 }, list.ToArray());
+            Assert.Equal(new int[] { 4, 1, 2, 3, 0 }, list.ToArray(), this);
 
             list.Sort();
-            Assert.Equal(new int[] { 0, 1, 2, 3, 4 }, list.ToArray());
+            Assert.Equal(new int[] { 0, 1, 2, 3, 4 }, list.ToArray(), this);
         }
     }
 }
