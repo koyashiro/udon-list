@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UdonSharp;
 using Koyashiro.UdonTest;
@@ -5,6 +6,7 @@ using Koyashiro.UdonTest;
 namespace Koyashiro.UdonList.Tests
 {
     using Koyashiro.UdonList;
+    using UnityEditor;
 
     [AddComponentMenu("")]
     public class UdonGenericListTest : UdonSharpBehaviour
@@ -31,6 +33,17 @@ namespace Koyashiro.UdonList.Tests
             gameObjectList.Reverse();
             Assert.Equal(new GameObject[] { gameObjects[3], gameObjects[2], gameObjects[1], gameObjects[0] },
                 gameObjectList.ToArray<GameObject>(), this);
+
+            var guidList = UdonGenericList.New<Guid>();
+            for (var i = 0; i < 100; i++)
+            {
+                guidList.Add(Guid.NewGuid());
+            }
+            guidList.Sort<Guid>();
+            var sortedGuidArray = guidList.ToArray<Guid>();
+            System.Array.Reverse(sortedGuidArray, 0, sortedGuidArray.Length);
+            guidList.Reverse();
+            Assert.Equal(sortedGuidArray, guidList.ToArray<Guid>(), this);
         }
     }
 }
