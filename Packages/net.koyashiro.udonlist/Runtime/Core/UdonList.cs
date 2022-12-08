@@ -530,9 +530,9 @@ namespace Koyashiro.UdonList.Core
 
         public static void Sort<T>(object[] list) where T : IComparable
         {
-            var size = (int)list[1];
+            var items = (T[])list[0];
 
-            Sort<T>(list, 0, size);
+            HeapSort(items);
         }
 
         public static void Sort<T>(object[] list, int index, int count) where T : IComparable
@@ -627,6 +627,79 @@ namespace Koyashiro.UdonList.Core
                 while (true)
                 {
                     var left = 2 * (j - index) + 1 + index;
+                    var right = left + 1;
+
+                    if (left >= i)
+                    {
+                        break;
+                    }
+
+                    if (array[left].CompareTo(array[k]) > 0)
+                    {
+                        k = left;
+                    }
+
+                    if (right < i && array[right].CompareTo(array[k]) > 0)
+                    {
+                        k = right;
+                    }
+
+                    if (k == j)
+                    {
+                        break;
+                    }
+
+                    {
+                        var tmp = array[k];
+                        array[k] = array[j];
+                        array[j] = tmp;
+                    }
+
+                    j = k;
+                }
+            }
+        }
+
+        private static void HeapSort<T>(T[] array) where T : IComparable
+        {
+            var count = array.Length;
+
+            for (int i = 1, _t = count; i < _t; i++)
+            {
+                var j = i;
+                while (j > 0)
+                {
+                    var _j = (j - 1) / 2;
+                    var _p = array[_j];
+                    var _c = array[j];
+                    if (_p.CompareTo(_c) < 0)
+                    {
+                        array[_j] = _c;
+                        array[j] = _p;
+
+                        j = _j;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (var i = count - 1; i > 0; i--)
+            {
+                {
+                    var tmp = array[0];
+                    array[0] = array[i];
+                    array[i] = tmp;
+                }
+
+                var j = 0;
+                var k = 0;
+
+                while (true)
+                {
+                    var left = 2 * j + 1;
                     var right = left + 1;
 
                     if (left >= i)
