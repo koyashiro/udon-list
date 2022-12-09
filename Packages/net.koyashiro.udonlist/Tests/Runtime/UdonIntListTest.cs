@@ -11,7 +11,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonIntList.New();
+            var list = UdonList<int>.New();
             list.Add(100);
             list.Add(101);
             list.Add(102);
@@ -27,7 +27,7 @@ namespace Koyashiro.UdonList.Tests
             list.SetItem(1, 101);
             Assert.Equal(new int[] { 100, 101 }, list.ToArray(), this);
 
-            list = UdonIntList.New(new int[] { 0, 1, 2, 3, 4 });
+            list = UdonList<int>.New(new int[] { 0, 1, 2, 3, 4 });
             list.Reverse();
             Assert.Equal(new int[] { 4, 3, 2, 1, 0 }, list.ToArray(), this);
             list.Reverse(1, 3);

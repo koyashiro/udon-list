@@ -11,7 +11,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonShortList.New();
+            var list = UdonList<short>.New();
             list.Add((short)100);
             list.Add((short)101);
             list.Add((short)102);
@@ -19,15 +19,15 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal((short)101, list.GetItem(1), this);
             Assert.Equal((short)102, list.GetItem(2), this);
             Assert.Equal(new short[] { 100, 101, 102 }, list.ToArray(), this);
-            Assert.True(list.Remove(101), this);
-            Assert.False(list.Remove(103), this);
+            Assert.True(list.Remove((short)101), this);
+            Assert.False(list.Remove((short)103), this);
             Assert.Equal((short)100, list.GetItem(0), this);
             Assert.Equal((short)102, list.GetItem(1), this);
             Assert.Equal(new short[] { 100, 102 }, list.ToArray(), this);
             list.SetItem(1, (short)101);
             Assert.Equal(new short[] { 100, 101 }, list.ToArray(), this);
 
-            list = UdonShortList.New(new short[] { 0, 1, 2, 3, 4 });
+            list = UdonList<short>.New(new short[] { 0, 1, 2, 3, 4 });
             list.Reverse();
             Assert.Equal(new short[] { 4, 3, 2, 1, 0 }, list.ToArray(), this);
             list.Reverse(1, 3);
