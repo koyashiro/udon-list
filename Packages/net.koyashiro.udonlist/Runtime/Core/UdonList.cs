@@ -14,7 +14,7 @@ namespace Koyashiro.UdonList.Core
             var items = Array.CreateInstance(type, 0);
             var size = 0;
 
-            return new object[3] { items, size, type };
+            return new object[] { items, size, type };
         }
 
         public static object[] New<T>(T[] collection)
@@ -28,7 +28,7 @@ namespace Koyashiro.UdonList.Core
             var items = collection.Clone();
             var size = collection.Length;
 
-            return new object[3] { items, size, type };
+            return new object[] { items, size, type };
         }
 
         public static object[] New<T>(int capacity)
@@ -42,7 +42,7 @@ namespace Koyashiro.UdonList.Core
             var items = Array.CreateInstance(typeof(T), capacity);
             var size = 0;
 
-            return new object[3] { items, size, type };
+            return new object[] { items, size, type };
         }
 
         public static int Capacity(object[] list)
