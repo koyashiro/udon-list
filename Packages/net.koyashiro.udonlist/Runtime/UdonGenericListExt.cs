@@ -5,167 +5,167 @@ namespace Koyashiro.UdonList
 
     public static class UdonGenericListExt
     {
-        public static int Capacity(this UdonGenericList list)
+        public static int Capacity<T>(this UdonGenericList<T> list)
         {
             return UdonList.Capacity(list.AsObjectArray());
         }
 
-        public static void SetCapacity(this UdonGenericList list, int capacity)
+        public static void SetCapacity<T>(this UdonGenericList<T> list, int capacity)
         {
             UdonList.SetCapacity(list.AsObjectArray(), capacity);
         }
 
-        public static int Count(this UdonGenericList list)
+        public static int Count<T>(this UdonGenericList<T> list)
         {
             return UdonList.Count(list.AsObjectArray());
         }
 
-        public static T GetItem<T>(this UdonGenericList list, int index)
+        public static T GetItem<T>(this UdonGenericList<T> list, int index)
         {
             return UdonList.GetItem<T>(list.AsObjectArray(), index);
         }
 
-        public static void SetItem<T>(this UdonGenericList list, int index, T item)
+        public static void SetItem<T>(this UdonGenericList<T> list, int index, T item)
         {
             UdonList.SetItem(list.AsObjectArray(), index, item);
         }
 
-        public static void Add<T>(this UdonGenericList list, T item)
+        public static void Add<T>(this UdonGenericList<T> list, T item)
         {
             UdonList.Add(list.AsObjectArray(), item);
         }
 
-        public static void AddRange<T>(this UdonGenericList list, T[] collection)
+        public static void AddRange<T>(this UdonGenericList<T> list, T[] collection)
         {
             UdonList.AddRange(list.AsObjectArray(), collection);
         }
 
-        public static void Clear(this UdonGenericList list)
+        public static void Clear<T>(this UdonGenericList<T> list)
         {
             UdonList.Clear(list.AsObjectArray());
         }
 
-        public static bool Contains<T>(this UdonGenericList list, T item)
+        public static bool Contains<T>(this UdonGenericList<T> list, T item)
         {
             return UdonList.Contains(list.AsObjectArray(), item);
         }
 
-        public static void CopyTo<T>(this UdonGenericList list, T[] array)
+        public static void CopyTo<T>(this UdonGenericList<T> list, T[] array)
         {
             UdonList.CopyTo(list.AsObjectArray(), array);
         }
 
-        public static void CopyTo<T>(this UdonGenericList list, int index, T[] array, int arrayIndex, int count)
+        public static void CopyTo<T>(this UdonGenericList<T> list, int index, T[] array, int arrayIndex, int count)
         {
             UdonList.CopyTo(list.AsObjectArray(), index, array, arrayIndex, count);
         }
 
-        public static void CopyTo<T>(UdonGenericList list, T[] array, int arrayIndex)
+        public static void CopyTo<T>(UdonGenericList<T> list, T[] array, int arrayIndex)
         {
             UdonList.CopyTo(list.AsObjectArray(), array, arrayIndex);
         }
 
-        public static int EnsureCapacity(this UdonGenericList list, int capacity)
+        public static int EnsureCapacity<T>(this UdonGenericList<T> list, int capacity)
         {
             return UdonList.EnsureCapacity(list.AsObjectArray(), capacity);
         }
 
-        public static UdonGenericList GetRange(this UdonGenericList list, int index, int count)
+        public static UdonGenericList<T> GetRange<T>(this UdonGenericList<T> list, int index, int count)
         {
-            return (UdonGenericList)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
+            return (UdonGenericList<T>)(object)UdonList.GetRange(list.AsObjectArray(), index, count);
         }
 
-        public static UdonGenericList Slice(this UdonGenericList list, int start, int length)
+        public static UdonGenericList<T> Slice<T>(this UdonGenericList<T> list, int start, int length)
         {
-            return (UdonGenericList)(object)UdonList.Slice(list.AsObjectArray(), start, length);
+            return (UdonGenericList<T>)(object)UdonList.Slice(list.AsObjectArray(), start, length);
         }
 
-        public static int IndexOf<T>(this UdonGenericList list, T item)
+        public static int IndexOf<T>(this UdonGenericList<T> list, T item)
         {
             return UdonList.IndexOf(list.AsObjectArray(), item);
         }
 
-        public static int IndexOf<T>(this UdonGenericList list, T item, int index)
+        public static int IndexOf<T>(this UdonGenericList<T> list, T item, int index)
         {
             return UdonList.IndexOf(list.AsObjectArray(), item, index);
         }
 
-        public static int IndexOf<T>(this UdonGenericList list, T item, int index, int count)
+        public static int IndexOf<T>(this UdonGenericList<T> list, T item, int index, int count)
         {
             return UdonList.IndexOf(list.AsObjectArray(), item, index, count);
         }
 
-        public static void Insert<T>(this UdonGenericList list, int index, T item)
+        public static void Insert<T>(this UdonGenericList<T> list, int index, T item)
         {
             UdonList.Insert(list.AsObjectArray(), index, item);
         }
 
-        public static void InsertRange<T>(this UdonGenericList list, int index, T[] collection)
+        public static void InsertRange<T>(this UdonGenericList<T> list, int index, T[] collection)
         {
             UdonList.InsertRange(list.AsObjectArray(), index, collection);
         }
 
-        public static int LastIndexOf<T>(this UdonGenericList list, T item)
+        public static int LastIndexOf<T>(this UdonGenericList<T> list, T item)
         {
             return UdonList.LastIndexOf(list.AsObjectArray(), item);
         }
 
-        public static int LastIndexOf<T>(this UdonGenericList list, T item, int index)
+        public static int LastIndexOf<T>(this UdonGenericList<T> list, T item, int index)
         {
             return UdonList.LastIndexOf(list.AsObjectArray(), item, index);
         }
 
-        public static int LastIndexOf<T>(this UdonGenericList list, T item, int index, int count)
+        public static int LastIndexOf<T>(this UdonGenericList<T> list, T item, int index, int count)
         {
             return UdonList.LastIndexOf(list.AsObjectArray(), item, index, count);
         }
 
-        public static bool Remove<T>(this UdonGenericList list, T item)
+        public static bool Remove<T>(this UdonGenericList<T> list, T item)
         {
             return UdonList.Remove(list.AsObjectArray(), item);
         }
 
-        public static void RemoveAt(this UdonGenericList list, int index)
+        public static void RemoveAt<T>(this UdonGenericList<T> list, int index)
         {
             UdonList.RemoveAt(list.AsObjectArray(), index);
         }
 
-        public static void RemoveRange(this UdonGenericList list, int index, int count)
+        public static void RemoveRange<T>(this UdonGenericList<T> list, int index, int count)
         {
             UdonList.RemoveRange(list.AsObjectArray(), index, count);
         }
 
-        public static void Reverse(this UdonGenericList list)
+        public static void Reverse<T>(this UdonGenericList<T> list)
         {
             UdonList.Reverse(list.AsObjectArray());
         }
 
-        public static void Reverse(this UdonGenericList list, int index, int count)
+        public static void Reverse<T>(this UdonGenericList<T> list, int index, int count)
         {
             UdonList.Reverse(list.AsObjectArray(), index, count);
         }
 
-        public static void Sort<T>(this UdonGenericList list) where T : IComparable
+        public static void Sort<T>(this UdonGenericList<T> list) where T : IComparable
         {
             UdonList.Sort<T>(list.AsObjectArray());
         }
 
-        public static void Sort<T>(this UdonGenericList list, int index, int count) where T : IComparable
+        public static void Sort<T>(this UdonGenericList<T> list, int index, int count) where T : IComparable
         {
             UdonList.Sort<T>(list.AsObjectArray(), index, count);
         }
 
-        public static T[] ToArray<T>(this UdonGenericList list)
+        public static T[] ToArray<T>(this UdonGenericList<T> list)
         {
             return UdonList.ToArray<T>(list.AsObjectArray());
         }
 
-        public static void TrimExcess(this UdonGenericList list)
+        public static void TrimExcess<T>(this UdonGenericList<T> list)
         {
             UdonList.TrimExcess(list.AsObjectArray());
         }
 
-        private static object[] AsObjectArray(this UdonGenericList list)
+        private static object[] AsObjectArray<T>(this UdonGenericList<T> list)
         {
             return (object[])(object)list;
         }

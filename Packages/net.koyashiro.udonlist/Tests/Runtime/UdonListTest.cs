@@ -10,13 +10,13 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            UdonDecimalList list;
+            UdonGenericList<decimal> list;
 
-            list = UdonDecimalList.New();
+            list = UdonGenericList<decimal>.New();
             Assert.Equal(0, list.Count(), this);
-            list = UdonDecimalList.New(5);
+            list = UdonGenericList<decimal>.New(5);
             Assert.Equal(0, list.Count(), this);
-            list = UdonDecimalList.New(new decimal[] { 1, 2, 3 });
+            list = UdonGenericList<decimal>.New(new decimal[] { 1, 2, 3 });
             Assert.Equal(3, list.Count(), this);
             list.EnsureCapacity(10);
             Assert.Equal(10, ((Array)((object[])(object)list)[0]).Length, this);
@@ -33,7 +33,7 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(list.ToArray(), array, this);
             list.Clear();
             Assert.Equal(0, list.Count(), this);
-            list = UdonDecimalList.New(new decimal[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
+            list = UdonGenericList<decimal>.New(new decimal[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
             Assert.Equal(10, list.Count(), this);
             Assert.Equal(new decimal[] { 2, 3, 4 }, list.GetRange(1, 3).ToArray(), this);
             Assert.Equal(new decimal[] { 3, 4, 5 }, list.Slice(2, 3).ToArray(), this);

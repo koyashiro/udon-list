@@ -6,21 +6,21 @@ namespace Koyashiro.UdonList
     using Koyashiro.UdonList.Core;
 
     [AddComponentMenu("")]
-    public class UdonGenericList : UdonSharpBehaviour
+    public class UdonGenericList<T> : UdonSharpBehaviour
     {
-        public static UdonGenericList New<T>()
+        public static UdonGenericList<T> New()
         {
-            return (UdonGenericList)(object)UdonList.New<T>();
+            return (UdonGenericList<T>)(object)UdonList.New<T>();
         }
 
-        public static UdonGenericList New<T>(T[] collection)
+        public static UdonGenericList<T> New(T[] collection)
         {
-            return (UdonGenericList)(object)UdonList.New(collection);
+            return (UdonGenericList<T>)(object)UdonList.New(collection);
         }
 
-        public static UdonGenericList New<T>(int capacity)
+        public static UdonGenericList<T> New(int capacity)
         {
-            return (UdonGenericList)(object)UdonList.New<T>(capacity);
+            return (UdonGenericList<T>)(object)UdonList.New<T>(capacity);
         }
     }
 }
