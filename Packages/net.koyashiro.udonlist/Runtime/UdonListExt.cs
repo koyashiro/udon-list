@@ -74,11 +74,6 @@ namespace Koyashiro.UdonList
             return (UdonList<T>)(object)Core.UdonList.GetRange(list.AsObjectArray(), index, count);
         }
 
-        public static UdonList<T> Slice<T>(this UdonList<T> list, int start, int length)
-        {
-            return (UdonList<T>)(object)Core.UdonList.Slice(list.AsObjectArray(), start, length);
-        }
-
         public static int IndexOf<T>(this UdonList<T> list, T item)
         {
             return Core.UdonList.IndexOf(list.AsObjectArray(), item);

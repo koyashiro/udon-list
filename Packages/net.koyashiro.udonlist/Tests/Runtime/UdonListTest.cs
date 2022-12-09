@@ -36,7 +36,6 @@ namespace Koyashiro.UdonList.Tests
             list = UdonList<decimal>.New(new decimal[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
             Assert.Equal(10, list.Count(), this);
             Assert.Equal(new decimal[] { 2, 3, 4 }, list.GetRange(1, 3).ToArray(), this);
-            Assert.Equal(new decimal[] { 3, 4, 5 }, list.Slice(2, 3).ToArray(), this);
             Assert.Equal(2, list.IndexOf(3m), this);
             Assert.Equal(7, list.IndexOf(3m, 4), this);
             Assert.Equal(7, list.LastIndexOf(3m), this);

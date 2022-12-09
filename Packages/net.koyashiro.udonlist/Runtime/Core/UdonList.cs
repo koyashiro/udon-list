@@ -266,11 +266,6 @@ namespace Koyashiro.UdonList.Core
             return new object[] { newItems, count, type };
         }
 
-        public static object[] Slice(object[] list, int start, int length)
-        {
-            return GetRange(list, start, length);
-        }
-
         public static int IndexOf<T>(object[] list, T item)
         {
             var items = (Array)list[0];
