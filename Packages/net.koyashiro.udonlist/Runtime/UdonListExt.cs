@@ -1,7 +1,7 @@
+using System;
+
 namespace Koyashiro.UdonList
 {
-    using System;
-
     public static class UdonListExt
     {
         public static int Capacity<T>(this UdonList<T> list)
