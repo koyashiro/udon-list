@@ -27,7 +27,6 @@
   "url": "https://github.com/koyashiro/udon-list/releases/download/v0.11.0/net.koyashiro.udonlist-0.11.0.zip",
   "vpmDependencies": {
     "com.vrchat.udonsharp": "1.1.5",
-    "net.koyashiro.udonexception": "0.2.0",
-    "net.koyashiro.udontest": "0.4.0"
+    "net.koyashiro.udonexception": "0.2.0"
   }
 }

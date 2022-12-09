@@ -197,6 +197,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "net.koyashiro.udonlist.tests": {
+      "version": "file:net.koyashiro.udonlist.tests",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "net.koyashiro.udontest": {
       "version": "file:net.koyashiro.udontest",
       "depth": 0,
