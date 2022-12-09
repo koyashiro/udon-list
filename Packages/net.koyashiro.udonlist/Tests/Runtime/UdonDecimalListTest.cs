@@ -11,7 +11,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonDecimalList.New();
+            var list = UdonList<decimal>.New();
             list.Add(100m);
             list.Add(101m);
             list.Add(102m);
@@ -27,7 +27,7 @@ namespace Koyashiro.UdonList.Tests
             list.SetItem(1, 101m);
             Assert.Equal(new decimal[] { 100m, 101m }, list.ToArray(), this);
 
-            list = UdonDecimalList.New(new decimal[] { 0m, 1m, 2m, 3m, 4m });
+            list = UdonList<decimal>.New(new decimal[] { 0m, 1m, 2m, 3m, 4m });
             list.Reverse();
             Assert.Equal(new decimal[] { 4m, 3m, 2m, 1m, 0m }, list.ToArray(), this);
             list.Reverse(1, 3);

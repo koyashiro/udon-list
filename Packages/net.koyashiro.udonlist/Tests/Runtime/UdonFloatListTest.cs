@@ -11,7 +11,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonFloatList.New();
+            var list = UdonList<float>.New();
             list.Add(100f);
             list.Add(101f);
             list.Add(102f);
@@ -27,7 +27,7 @@ namespace Koyashiro.UdonList.Tests
             list.SetItem(1, 101f);
             Assert.Equal(new float[] { 100f, 101f }, list.ToArray(), this);
 
-            list = UdonFloatList.New(new float[] { 0f, 1f, 2f, 3f, 4f });
+            list = UdonList<float>.New(new float[] { 0f, 1f, 2f, 3f, 4f });
             list.Reverse();
             Assert.Equal(new float[] { 4f, 3f, 2f, 1f, 0f }, list.ToArray(), this);
             list.Reverse(1, 3);

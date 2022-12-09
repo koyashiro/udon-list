@@ -11,7 +11,7 @@ namespace Koyashiro.UdonList.Tests
     {
         public void Start()
         {
-            var list = UdonBoolList.New();
+            var list = UdonList<bool>.New();
             list.Add(true);
             list.Add(true);
             list.Add(false);
@@ -27,7 +27,7 @@ namespace Koyashiro.UdonList.Tests
             list.SetItem(1, false);
             Assert.Equal(new bool[] { true, false }, list.ToArray(), this);
 
-            list = UdonBoolList.New(new bool[] { false, true, true, false, true });
+            list = UdonList<bool>.New(new bool[] { false, true, true, false, true });
             list.Reverse();
             Assert.Equal(new bool[] { true, false, true, true, false }, list.ToArray(), this);
             list.Reverse(1, 3);

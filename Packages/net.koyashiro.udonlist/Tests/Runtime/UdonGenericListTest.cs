@@ -15,7 +15,7 @@ namespace Koyashiro.UdonList.Tests
 
         public void Start()
         {
-            var gameObjectList = UdonGenericList<GameObject>.New();
+            var gameObjectList = UdonList<GameObject>.New();
             gameObjectList.Add(gameObjects[0]);
             gameObjectList.Add(gameObjects[1]);
             gameObjectList.Add(gameObjects[2]);
@@ -28,20 +28,25 @@ namespace Koyashiro.UdonList.Tests
             gameObjectList.SetItem(1, gameObjects[1]);
             Assert.Equal(gameObjects[1], gameObjectList.GetItem(1), this);
 
-            gameObjectList = UdonGenericList<GameObject>.New(gameObjects);
+            gameObjectList = UdonList<GameObject>.New(gameObjects);
             gameObjectList.Reverse();
             Assert.Equal(new GameObject[] { gameObjects[3], gameObjects[2], gameObjects[1], gameObjects[0] },
                 gameObjectList.ToArray(), this);
+            
+            var guidList = UdonList<Guid>.New();
 
-            var guidList = UdonGenericList<Guid>.New();
             for (var i = 0; i < 100; i++)
             {
                 guidList.Add(Guid.NewGuid());
             }
+
             guidList.Sort();
+
             var sortedGuidArray = guidList.ToArray();
             Array.Reverse(sortedGuidArray, 0, sortedGuidArray.Length);
+
             guidList.Reverse();
+
             Assert.Equal(sortedGuidArray, guidList.ToArray(), this);
         }
     }
