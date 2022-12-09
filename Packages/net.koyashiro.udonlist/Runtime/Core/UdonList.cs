@@ -122,7 +122,7 @@ namespace Koyashiro.UdonList.Core
             if ((uint)size >= (uint)items.Length)
             {
                 Grow(list, size + 1);
-                items = (T[])list[0];
+                items = (Array)list[0];
             }
 
             items.SetValue(item, size);
@@ -302,7 +302,7 @@ namespace Koyashiro.UdonList.Core
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            var items = (T[])list[0];
+            var items = (Array)list[0];
 
             return Array.IndexOf(items, item, index, count);
         }
@@ -316,12 +316,12 @@ namespace Koyashiro.UdonList.Core
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            var items = (T[])list[0];
+            var items = (Array)list[0];
 
             if (size == items.Length)
             {
                 Grow(list, size + 1);
-                items = (T[])list[0];
+                items = (Array)list[0];
             }
 
             if (index < size)
@@ -527,7 +527,7 @@ namespace Koyashiro.UdonList.Core
                 UdonException.ThrowArgumentOutOfRangeException();
             }
 
-            var items = (object[])list[0];
+            var items = (Array)list[0];
 
             Array.Reverse(items, index, count);
         }
@@ -565,7 +565,7 @@ namespace Koyashiro.UdonList.Core
 
         public static T[] ToArray<T>(object[] list)
         {
-            var items = (object[])list[0];
+            var items = (Array)list[0];
             var size = (int)list[1];
 
             if (size == 0)
@@ -581,7 +581,7 @@ namespace Koyashiro.UdonList.Core
 
         public static void TrimExcess(object[] list)
         {
-            var items = (object[])list[0];
+            var items = (Array)list[0];
             var size = (int)list[1];
 
             int threshold = (int)(((double)items.Length) * 0.9);
