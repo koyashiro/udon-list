@@ -185,14 +185,14 @@
         "com.unity.textmeshpro": "2.1.6"
       }
     },
-    "net.koyashiro.udonexception": {
-      "version": "file:net.koyashiro.udonexception",
+    "net.koyashiro.udonlist": {
+      "version": "file:net.koyashiro.udonlist",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
     },
-    "net.koyashiro.udonlist": {
-      "version": "file:net.koyashiro.udonlist",
+    "net.koyashiro.udonlist.tests": {
+      "version": "file:net.koyashiro.udonlist.tests",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}

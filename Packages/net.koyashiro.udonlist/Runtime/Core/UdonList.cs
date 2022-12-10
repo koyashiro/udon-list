@@ -1,9 +1,8 @@
 using System;
+using Koyashiro.UdonList.Internal;
 
 namespace Koyashiro.UdonList.Core
 {
-    using Koyashiro.UdonException;
-
     public static class UdonList
     {
         private const int DEFAULT_CAPACITY = 4;
@@ -21,7 +20,7 @@ namespace Koyashiro.UdonList.Core
         {
             if (collection == null)
             {
-                UdonException.ThrowArgumentNullException(nameof(collection));
+                ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
             var type = typeof(T);
@@ -35,7 +34,7 @@ namespace Koyashiro.UdonList.Core
         {
             if (capacity < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var type = typeof(T);
@@ -58,7 +57,7 @@ namespace Koyashiro.UdonList.Core
 
             if (capacity < size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -92,7 +91,7 @@ namespace Koyashiro.UdonList.Core
 
             if ((uint)index >= (uint)size)
             {
-                UdonException.ThrowIndexOutOfRangeException();
+                ExceptionHelper.ThrowIndexOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -106,7 +105,7 @@ namespace Koyashiro.UdonList.Core
 
             if ((uint)index >= (uint)size)
             {
-                UdonException.ThrowIndexOutOfRangeException();
+                ExceptionHelper.ThrowIndexOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -133,7 +132,7 @@ namespace Koyashiro.UdonList.Core
         {
             if (collection == null)
             {
-                UdonException.ThrowArgumentNullException(nameof(collection));
+                ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
             if (collection.Length == 0)
@@ -175,14 +174,14 @@ namespace Koyashiro.UdonList.Core
         {
             if (array == null)
             {
-                UdonException.ThrowArgumentNullException(nameof(array));
+                ExceptionHelper.ThrowArgumentNullException(nameof(array));
             }
 
             var size = (int)list[1];
 
             if (size - index < count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -194,7 +193,7 @@ namespace Koyashiro.UdonList.Core
         {
             if (array == null)
             {
-                UdonException.ThrowArgumentNullException(nameof(array));
+                ExceptionHelper.ThrowArgumentNullException(nameof(array));
             }
 
             var items = (Array)list[0];
@@ -207,7 +206,7 @@ namespace Koyashiro.UdonList.Core
         {
             if (capacity < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -242,19 +241,19 @@ namespace Koyashiro.UdonList.Core
         {
             if (index < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var size = (int)list[1];
 
             if (size - index < count)
             {
-                UdonException.ThrowArgumentException();
+                ExceptionHelper.ThrowArgumentException();
             }
 
             var items = (Array)list[0];
@@ -280,7 +279,7 @@ namespace Koyashiro.UdonList.Core
 
             if (index > size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -294,12 +293,12 @@ namespace Koyashiro.UdonList.Core
 
             if (index > size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count < 0 || index > size - count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -313,7 +312,7 @@ namespace Koyashiro.UdonList.Core
 
             if ((uint)index > (uint)size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -337,14 +336,14 @@ namespace Koyashiro.UdonList.Core
         {
             if (collection == null)
             {
-                UdonException.ThrowArgumentNullException(nameof(collection));
+                ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
             var size = (int)list[1];
 
             if ((uint)index > (uint)size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (collection.Length == 0)
@@ -395,7 +394,7 @@ namespace Koyashiro.UdonList.Core
 
             if (index >= size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             return LastIndexOf(list, item, index, index + 1);
@@ -407,12 +406,12 @@ namespace Koyashiro.UdonList.Core
 
             if ((size != 0) && (index < 0))
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if ((size != 0) && (count < 0))
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (size == 0)
@@ -422,12 +421,12 @@ namespace Koyashiro.UdonList.Core
 
             if (index >= size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count > index + 1)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -453,7 +452,7 @@ namespace Koyashiro.UdonList.Core
 
             if ((uint)index >= (uint)size)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             size--;
@@ -472,12 +471,12 @@ namespace Koyashiro.UdonList.Core
         {
             if (index < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -485,7 +484,7 @@ namespace Koyashiro.UdonList.Core
 
             if (size - index < count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count == 0)
@@ -513,18 +512,18 @@ namespace Koyashiro.UdonList.Core
         {
             if (index < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var size = (int)list[1];
             if (size - index < count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (Array)list[0];
@@ -544,18 +543,18 @@ namespace Koyashiro.UdonList.Core
         {
             if (index < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             if (count < 0)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var size = (int)list[1];
             if (size - index < count)
             {
-                UdonException.ThrowArgumentOutOfRangeException();
+                ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
             var items = (T[])list[0];
