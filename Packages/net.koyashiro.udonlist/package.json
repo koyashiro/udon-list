@@ -1,7 +1,7 @@
 {
   "name": "net.koyashiro.udonlist",
   "displayName": "UdonList",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "List implementation for UdonSharp.",
   "homepage": "https://github.com/koyashiro/udon-list",
   "bugs": {
@@ -24,7 +24,7 @@
       "path": "Samples~/UdonListSample"
     }
   ],
-  "url": "https://github.com/koyashiro/udon-list/releases/download/v0.11.0/net.koyashiro.udonlist-0.11.0.zip",
+  "url": "https://github.com/koyashiro/udon-list/releases/download/v0.12.0/net.koyashiro.udonlist-0.12.0.zip",
   "vpmDependencies": {
     "com.vrchat.udonsharp": "1.1.5"
   }
