@@ -44,11 +44,6 @@ namespace Koyashiro.UdonList.Internal
             Debug.LogError($"[<color={COLOR_TAG}>{TAG}</color>] <color={COLOR_EXCEPTION}>{exception}</color>: {message} (Parameter '<color={COLOR_PARAMETER}>{paramName}</color>')");
         }
 
-        private static void LogErrorMessage(string exception, string message, string paramName, object actualValue)
-        {
-            Debug.LogError($"[<color={COLOR_TAG}>{TAG}</color>] <color={COLOR_EXCEPTION}>{exception}</color>: {message} (Parameter '<color={COLOR_PARAMETER}>{paramName}</color>')\nActual value was <color={COLOR_ACTUAL_VALUE}>{actualValue}</color>.");
-        }
-
         private static void Panic()
         {
             // Raise runtime Exception
