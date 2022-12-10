@@ -5,6 +5,6 @@
   "vpmDependencies": {
     "com.vrchat.udonsharp": "1.1.6",
     "net.koyashiro.udonlist": "0.12.2",
-    "net.koyashiro.udontest": "0.4.0"
+    "net.koyashiro.udontest": "0.4.1"
   }
 }
