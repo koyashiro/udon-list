@@ -4,8 +4,10 @@ List implementation for UdonSharp.
 
 ## Example
 
-String list exmaple.
-You can also make UdonIntList, UdonFloatList, UdonBoolList, UdonObjectList and so on.
+`UdonList` example for a `string`.
+
+In addition, `UdonList<int>`, `UdonList<float>`, `UdonList<bool>`,
+`UdonList<UdonSharpBehaviour>`, `UdonList<object>`, and so on can be used.
 
 ```cs
 using UnityEngine;
@@ -16,7 +18,7 @@ public class UdonListSample : UdonSharpBehaviour
 {
     private void Start()
     {
-        var list = UdonList<string>.New(); // Same as C# "new List<string>();"
+        var list = UdonList<string>.New(); // Same as C# `new List<string>();`
         list.Add("first");     // ["first"]
         list.Add("second");    // ["first", "second"]
         list.Add("third");     // ["first", "second", "third"]
