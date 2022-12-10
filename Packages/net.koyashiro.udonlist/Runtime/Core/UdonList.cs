@@ -128,7 +128,7 @@ namespace Koyashiro.UdonList.Core
             list[1] = size + 1;
         }
 
-        public static void AddRange(object[] list, Array collection)
+        public static void AddRange<T>(object[] list, T[] collection)
         {
             if (collection == null)
             {
@@ -165,12 +165,12 @@ namespace Koyashiro.UdonList.Core
             return size != 0 && IndexOf(list, item) >= 0;
         }
 
-        public static void CopyTo(object[] list, Array array)
+        public static void CopyTo<T>(object[] list, T[] array)
         {
             CopyTo(list, array, 0);
         }
 
-        public static void CopyTo(object[] list, int index, Array array, int arrayIndex, int count)
+        public static void CopyTo<T>(object[] list, int index, T[] array, int arrayIndex, int count)
         {
             if (array == null)
             {
@@ -189,7 +189,7 @@ namespace Koyashiro.UdonList.Core
             Array.Copy(items, index, array, arrayIndex, count);
         }
 
-        public static void CopyTo(object[] list, Array array, int arrayIndex)
+        public static void CopyTo<T>(object[] list, T[] array, int arrayIndex)
         {
             if (array == null)
             {
@@ -332,7 +332,7 @@ namespace Koyashiro.UdonList.Core
             list[1] = size + 1;
         }
 
-        public static void InsertRange(object[] list, int index, Array collection)
+        public static void InsertRange<T>(object[] list, int index, T[] collection)
         {
             if (collection == null)
             {
