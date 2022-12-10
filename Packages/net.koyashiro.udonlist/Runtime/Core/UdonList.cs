@@ -38,7 +38,7 @@ namespace Koyashiro.UdonList.Core
             }
 
             var type = typeof(T);
-            var items = Array.CreateInstance(typeof(T), capacity);
+            var items = Array.CreateInstance(type, capacity);
             var size = 0;
 
             return new object[] { items, size, type };
@@ -99,7 +99,7 @@ namespace Koyashiro.UdonList.Core
             return (T)items.GetValue(index);
         }
 
-        public static void SetItem<T>(object[] list, int index, T item)
+        public static void SetItem(object[] list, int index, object item)
         {
             var size = (int)list[1];
 
@@ -113,7 +113,7 @@ namespace Koyashiro.UdonList.Core
             items.SetValue(item, index);
         }
 
-        public static void Add<T>(object[] list, T item)
+        public static void Add(object[] list, object item)
         {
             var items = (Array)list[0];
             var size = (int)list[1];
@@ -128,7 +128,7 @@ namespace Koyashiro.UdonList.Core
             list[1] = size + 1;
         }
 
-        public static void AddRange<T>(object[] list, T[] collection)
+        public static void AddRange(object[] list, Array collection)
         {
             if (collection == null)
             {
@@ -158,19 +158,19 @@ namespace Koyashiro.UdonList.Core
             list[1] = 0;
         }
 
-        public static bool Contains<T>(object[] list, T item)
+        public static bool Contains(object[] list, object item)
         {
             var size = (int)list[1];
 
             return size != 0 && IndexOf(list, item) >= 0;
         }
 
-        public static void CopyTo<T>(object[] list, T[] array)
+        public static void CopyTo(object[] list, Array array)
         {
             CopyTo(list, array, 0);
         }
 
-        public static void CopyTo<T>(object[] list, int index, T[] array, int arrayIndex, int count)
+        public static void CopyTo(object[] list, int index, Array array, int arrayIndex, int count)
         {
             if (array == null)
             {
@@ -189,7 +189,7 @@ namespace Koyashiro.UdonList.Core
             Array.Copy(items, index, array, arrayIndex, count);
         }
 
-        public static void CopyTo<T>(object[] list, T[] array, int arrayIndex)
+        public static void CopyTo(object[] list, Array array, int arrayIndex)
         {
             if (array == null)
             {
@@ -265,7 +265,7 @@ namespace Koyashiro.UdonList.Core
             return new object[] { newItems, count, type };
         }
 
-        public static int IndexOf<T>(object[] list, T item)
+        public static int IndexOf(object[] list, object item)
         {
             var items = (Array)list[0];
             var size = (int)list[1];
@@ -273,7 +273,7 @@ namespace Koyashiro.UdonList.Core
             return Array.IndexOf(items, item, 0, size);
         }
 
-        public static int IndexOf<T>(object[] list, T item, int index)
+        public static int IndexOf(object[] list, object item, int index)
         {
             var size = (int)list[1];
 
@@ -287,7 +287,7 @@ namespace Koyashiro.UdonList.Core
             return Array.IndexOf(items, item, index, size - index);
         }
 
-        public static int IndexOf<T>(object[] list, T item, int index, int count)
+        public static int IndexOf(object[] list, object item, int index, int count)
         {
             var size = (int)list[1];
 
@@ -306,7 +306,7 @@ namespace Koyashiro.UdonList.Core
             return Array.IndexOf(items, item, index, count);
         }
 
-        public static void Insert<T>(object[] list, int index, T item)
+        public static void Insert(object[] list, int index, object item)
         {
             var size = (int)list[1];
 
@@ -332,7 +332,7 @@ namespace Koyashiro.UdonList.Core
             list[1] = size + 1;
         }
 
-        public static void InsertRange<T>(object[] list, int index, T[] collection)
+        public static void InsertRange(object[] list, int index, Array collection)
         {
             if (collection == null)
             {
@@ -377,7 +377,7 @@ namespace Koyashiro.UdonList.Core
             list[1] = size + collection.Length;
         }
 
-        public static int LastIndexOf<T>(object[] list, T item)
+        public static int LastIndexOf(object[] list, object item)
         {
             var size = (int)list[1];
             if (size == 0)
@@ -400,7 +400,7 @@ namespace Koyashiro.UdonList.Core
             return LastIndexOf(list, item, index, index + 1);
         }
 
-        public static int LastIndexOf<T>(object[] list, T item, int index, int count)
+        public static int LastIndexOf(object[] list, object item, int index, int count)
         {
             var size = (int)list[1];
 
@@ -434,7 +434,7 @@ namespace Koyashiro.UdonList.Core
             return Array.LastIndexOf(items, item, index, count);
         }
 
-        public static bool Remove<T>(object[] list, T item)
+        public static bool Remove(object[] list, object item)
         {
             var index = IndexOf(list, item);
             if (index < 0)
