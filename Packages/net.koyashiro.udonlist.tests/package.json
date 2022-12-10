@@ -1,7 +1,7 @@
 {
   "name": "net.koyashiro.udonlist.tests",
   "displayName": "UdonList.Tests",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "vpmDependencies": {
     "com.vrchat.udonsharp": "1.1.5",
     "net.koyashiro.udonlist": "0.12.0",
