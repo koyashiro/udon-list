@@ -14,7 +14,7 @@ using Koyashiro.UdonList;
 
 public class UdonListSample : UdonSharpBehaviour
 {
-    public void Start()
+    private void Start()
     {
         var list = UdonList<string>.New(); // Same as C# "new List<string>();"
         list.Add("first");     // ["first"]
