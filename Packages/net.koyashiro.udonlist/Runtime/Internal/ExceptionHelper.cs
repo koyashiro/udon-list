@@ -12,25 +12,25 @@ namespace Koyashiro.UdonList.Internal
 
         public static void ThrowArgumentException()
         {
-            LogErrorMessage("System.ArgumentException", "Value does not fall within the expected range.");
+            LogErrorMessage(typeof(System.ArgumentException).FullName, "Value does not fall within the expected range.");
             Panic();
         }
 
         public static void ThrowArgumentNullException(string paramName)
         {
-            LogErrorMessage("System.ArgumentNullException", "Value cannot be null.", paramName);
+            LogErrorMessage(typeof(System.ArgumentNullException).FullName, "Value cannot be null.", paramName);
             Panic();
         }
 
         public static void ThrowArgumentOutOfRangeException()
         {
-            LogErrorMessage("System.ArgumentOutOfRangeException", "Specified argument was out of the range of valid values.");
+            LogErrorMessage(typeof(System.ArgumentOutOfRangeException).FullName, "Specified argument was out of the range of valid values.");
             Panic();
         }
 
         public static void ThrowIndexOutOfRangeException()
         {
-            LogErrorMessage("System.IndexOutOfRangeException", "Index was outside the bounds of the array.");
+            LogErrorMessage(typeof(System.IndexOutOfRangeException).FullName, "Index was outside the bounds of the array.");
             Panic();
         }
 
