@@ -9,7 +9,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class UdonStringListTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<string>.New();
             list.Add("first");

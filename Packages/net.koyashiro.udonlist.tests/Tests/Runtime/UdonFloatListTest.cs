@@ -9,7 +9,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class UdonFloatListTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<float>.New();
             list.Add(100f);

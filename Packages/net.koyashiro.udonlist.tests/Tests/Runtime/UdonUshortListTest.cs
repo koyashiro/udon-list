@@ -9,7 +9,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class UdonUshortListTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<ushort>.New();
             list.Add((ushort)100);

@@ -9,7 +9,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class UdonBoolListTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<bool>.New();
             list.Add(true);

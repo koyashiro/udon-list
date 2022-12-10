@@ -8,7 +8,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class UdonListTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             UdonList<decimal> list;
 

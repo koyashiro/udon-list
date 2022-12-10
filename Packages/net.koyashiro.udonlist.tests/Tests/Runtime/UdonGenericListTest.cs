@@ -13,7 +13,7 @@ namespace Koyashiro.UdonList.Tests
         [SerializeField]
         private GameObject[] gameObjects = { };
 
-        public void Start()
+        private void Start()
         {
             var gameObjectList = UdonList<GameObject>.New();
             gameObjectList.Add(gameObjects[0]);
@@ -32,7 +32,7 @@ namespace Koyashiro.UdonList.Tests
             gameObjectList.Reverse();
             Assert.Equal(new GameObject[] { gameObjects[3], gameObjects[2], gameObjects[1], gameObjects[0] },
                 gameObjectList.ToArray(), this);
-            
+
             var guidList = UdonList<Guid>.New();
 
             for (var i = 0; i < 100; i++)

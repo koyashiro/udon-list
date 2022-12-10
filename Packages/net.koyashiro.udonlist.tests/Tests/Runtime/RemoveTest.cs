@@ -7,7 +7,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class RemoveTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<object>.New(new object[] { 1, 2u, 3f, 4d, 'a', "aaa", 1 });
 

@@ -7,7 +7,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class NewTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             Assert.Equal(new object[] { new object[0], 0, typeof(object) }, UdonList<object>.New(), this);
             Assert.Equal(new object[] { new object[1], 0, typeof(object) }, UdonList<object>.New(1), this);

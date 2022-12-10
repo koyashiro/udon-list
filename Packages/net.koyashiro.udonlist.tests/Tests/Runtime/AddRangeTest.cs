@@ -7,7 +7,7 @@ namespace Koyashiro.UdonList.Tests
     [AddComponentMenu("")]
     public class AddRangeTest : UdonSharpBehaviour
     {
-        public void Start()
+        private void Start()
         {
             var list = UdonList<object>.New(new object[] { 0 });
             list.AddRange(new object[] { 0, null, 1, "2", 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 });
