@@ -13,21 +13,25 @@ namespace Koyashiro.UdonList.Internal
         public static void ThrowArgumentException()
         {
             LogErrorMessage("System.ArgumentException", "Value does not fall within the expected range.");
+            Panic();
         }
 
         public static void ThrowArgumentNullException(string paramName)
         {
             LogErrorMessage("System.ArgumentNullException", "Value cannot be null.", paramName);
+            Panic();
         }
 
         public static void ThrowArgumentOutOfRangeException()
         {
             LogErrorMessage("System.ArgumentOutOfRangeException", "Specified argument was out of the range of valid values.");
+            Panic();
         }
 
         public static void ThrowIndexOutOfRangeException()
         {
             LogErrorMessage("System.IndexOutOfRangeException", "Index was outside the bounds of the array.");
+            Panic();
         }
 
         private static void LogErrorMessage(string exception, string message)
@@ -43,6 +47,12 @@ namespace Koyashiro.UdonList.Internal
         private static void LogErrorMessage(string exception, string message, string paramName, object actualValue)
         {
             Debug.LogError($"[<color={COLOR_TAG}>{TAG}</color>] <color={COLOR_EXCEPTION}>{exception}</color>: {message} (Parameter '<color={COLOR_PARAMETER}>{paramName}</color>')\nActual value was <color={COLOR_ACTUAL_VALUE}>{actualValue}</color>.");
+        }
+
+        private static void Panic()
+        {
+            // Raise runtime Exception
+            ((object)null).ToString();
         }
     }
 }
