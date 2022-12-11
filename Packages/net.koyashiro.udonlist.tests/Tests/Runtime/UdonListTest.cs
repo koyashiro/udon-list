@@ -22,8 +22,8 @@ namespace Koyashiro.UdonList.Tests
             Assert.Equal(10, ((Array)((object[])(object)list)[0]).Length, this);
             Assert.Equal(3, list.Count(), this);
             list.Add(0m);
-            list.SetItem(3, 4m);
-            Assert.Equal(4m, list.GetItem(3), this);
+            list.Set(3, 4m);
+            Assert.Equal(4m, list.Get(3), this);
             list.Add(5m);
             list.AddRange(new decimal[] { 6, 7 });
             Assert.Equal(new decimal[] { 1, 2, 3, 4, 5, 6, 7 }, list.ToArray(), this);

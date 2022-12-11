@@ -15,16 +15,16 @@ namespace Koyashiro.UdonList.Tests
             list.Add(100u);
             list.Add(101u);
             list.Add(102u);
-            Assert.Equal(100u, list.GetItem(0), this);
-            Assert.Equal(101u, list.GetItem(1), this);
-            Assert.Equal(102u, list.GetItem(2), this);
+            Assert.Equal(100u, list.Get(0), this);
+            Assert.Equal(101u, list.Get(1), this);
+            Assert.Equal(102u, list.Get(2), this);
             Assert.Equal(new uint[] { 100u, 101u, 102u }, list.ToArray(), this);
             Assert.True(list.Remove(101u), this);
             Assert.False(list.Remove(103u), this);
-            Assert.Equal(100u, list.GetItem(0), this);
-            Assert.Equal(102u, list.GetItem(1), this);
+            Assert.Equal(100u, list.Get(0), this);
+            Assert.Equal(102u, list.Get(1), this);
             Assert.Equal(new uint[] { 100u, 102u }, list.ToArray(), this);
-            list.SetItem(1, 101u);
+            list.Set(1, 101u);
             Assert.Equal(new uint[] { 100u, 101u }, list.ToArray(), this);
 
             list = UdonList<uint>.New(new uint[] { 0u, 1u, 2u, 3u, 4u });
