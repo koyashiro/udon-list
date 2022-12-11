@@ -9,11 +9,10 @@ namespace Koyashiro.UdonList.Core
 
         public static object[] New<T>()
         {
-            var type = typeof(T);
-            var items = Array.CreateInstance(type, 0);
+            var items = Array.CreateInstance(typeof(T), 0);
             var size = 0;
 
-            return new object[] { items, size, type };
+            return new object[] { items, size, null };
         }
 
         public static object[] New<T>(T[] collection)
@@ -23,11 +22,10 @@ namespace Koyashiro.UdonList.Core
                 ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
-            var type = typeof(T);
             var items = collection.Clone();
             var size = collection.Length;
 
-            return new object[] { items, size, type };
+            return new object[] { items, size, null };
         }
 
         public static object[] New<T>(int capacity)
@@ -37,11 +35,10 @@ namespace Koyashiro.UdonList.Core
                 ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
-            var type = typeof(T);
-            var items = Array.CreateInstance(type, capacity);
+            var items = Array.CreateInstance(typeof(T), capacity);
             var size = 0;
 
-            return new object[] { items, size, type };
+            return new object[] { items, size, null };
         }
 
         public static int Capacity(object[] list)
@@ -67,7 +64,7 @@ namespace Koyashiro.UdonList.Core
                 return;
             }
 
-            var type = (Type)list[2];
+            var type = GetElementType(list);
 
             if (capacity == 0)
             {
@@ -257,7 +254,7 @@ namespace Koyashiro.UdonList.Core
             }
 
             var items = (Array)list[0];
-            var type = (Type)list[2];
+            var type = GetElementType(list);
 
             var newItems = Array.CreateInstance(type, count);
             Array.Copy(items, index, newItems, 0, count);
@@ -591,6 +588,49 @@ namespace Koyashiro.UdonList.Core
             }
 
             SetCapacity(list, size);
+        }
+
+        private static Type GetElementType(object[] list)
+        {
+            var type = (Type)list[2];
+            if (type != null)
+            {
+                return type;
+            }
+
+            var array = (Array)list[0];
+
+            var typeFullName = array.GetType().FullName;
+            typeFullName = typeFullName.Remove(typeFullName.Length - 2);
+
+            type = Type.GetType(typeFullName);
+            if (type == null)
+            {
+                var assemblyName = typeFullName;
+                while (true)
+                {
+                    type = Type.GetType($"{typeFullName}, {assemblyName}");
+                    if (type != null)
+                    {
+                        break;
+                    }
+
+                    var dotIndex = assemblyName.LastIndexOf('.');
+                    if (dotIndex != -1)
+                    {
+                        assemblyName = assemblyName.Remove(dotIndex);
+                    }
+                    else
+                    {
+                        // Error
+                        ((object)null).ToString();
+                    }
+                }
+            }
+
+            list[2] = type;
+
+            return type;
         }
 
         private static void HeapSort<T>(T[] array, int index, int count) where T : IComparable
