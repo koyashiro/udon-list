@@ -1,5 +1,6 @@
 using System;
 using Koyashiro.UdonList.Internal;
+using UnityEngine;
 
 namespace Koyashiro.UdonList.Core
 {
@@ -11,8 +12,9 @@ namespace Koyashiro.UdonList.Core
         {
             var items = Array.CreateInstance(typeof(T), 0);
             var size = 0;
+            var type = typeof(T);
 
-            return new object[] { items, size, null };
+            return new object[] { items, size, type };
         }
 
         public static object[] New<T>(T[] collection)
@@ -22,10 +24,11 @@ namespace Koyashiro.UdonList.Core
                 ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
-            var items = collection.Clone();
+            var items = (T[])collection.Clone();
             var size = collection.Length;
+            var type = GetElementType(items);
 
-            return new object[] { items, size, null };
+            return new object[] { items, size, type };
         }
 
         public static object[] New<T>(int capacity)
@@ -37,8 +40,9 @@ namespace Koyashiro.UdonList.Core
 
             var items = Array.CreateInstance(typeof(T), capacity);
             var size = 0;
+            var type = typeof(T);
 
-            return new object[] { items, size, null };
+            return new object[] { items, size, type };
         }
 
         public static int Capacity(object[] list)
@@ -64,7 +68,7 @@ namespace Koyashiro.UdonList.Core
                 return;
             }
 
-            var type = GetElementType(list);
+            var type = (Type)list[2];
 
             if (capacity == 0)
             {
@@ -254,7 +258,7 @@ namespace Koyashiro.UdonList.Core
             }
 
             var items = (Array)list[0];
-            var type = GetElementType(list);
+            var type = (Type)list[2];
 
             var newItems = Array.CreateInstance(type, count);
             Array.Copy(items, index, newItems, 0, count);
@@ -533,6 +537,8 @@ namespace Koyashiro.UdonList.Core
             var items = (T[])list[0];
             var size = (int)list[1];
 
+            Debug.Log("F " + items.GetType());
+
             HeapSort(items, size);
         }
 
@@ -555,6 +561,8 @@ namespace Koyashiro.UdonList.Core
             }
 
             var items = (T[])list[0];
+
+            Debug.Log("G " + items.GetType());
 
             HeapSort(items, index, count);
         }
@@ -590,20 +598,12 @@ namespace Koyashiro.UdonList.Core
             SetCapacity(list, size);
         }
 
-        private static Type GetElementType(object[] list)
+        private static Type GetElementType(Array array)
         {
-            var type = (Type)list[2];
-            if (type != null)
-            {
-                return type;
-            }
-
-            var array = (Array)list[0];
-
             var typeFullName = array.GetType().FullName;
             typeFullName = typeFullName.Remove(typeFullName.Length - 2);
 
-            type = Type.GetType(typeFullName);
+            var type = Type.GetType(typeFullName);
             if (type == null)
             {
                 var assemblyName = typeFullName;
@@ -627,8 +627,6 @@ namespace Koyashiro.UdonList.Core
                     }
                 }
             }
-
-            list[2] = type;
 
             return type;
         }
