@@ -1,6 +1,5 @@
 using System;
 using Koyashiro.UdonList.Internal;
-using UnityEngine;
 
 namespace Koyashiro.UdonList.Core
 {
@@ -537,8 +536,6 @@ namespace Koyashiro.UdonList.Core
             var items = (T[])list[0];
             var size = (int)list[1];
 
-            Debug.Log("F " + items.GetType());
-
             HeapSort(items, size);
         }
 
@@ -561,8 +558,6 @@ namespace Koyashiro.UdonList.Core
             }
 
             var items = (T[])list[0];
-
-            Debug.Log("G " + items.GetType());
 
             HeapSort(items, index, count);
         }
