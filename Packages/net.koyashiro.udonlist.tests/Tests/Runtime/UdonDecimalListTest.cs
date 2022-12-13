@@ -15,16 +15,16 @@ namespace Koyashiro.UdonList.Tests
             list.Add(100m);
             list.Add(101m);
             list.Add(102m);
-            Assert.Equal(100m, list.Get(0), this);
-            Assert.Equal(101m, list.Get(1), this);
-            Assert.Equal(102m, list.Get(2), this);
+            Assert.Equal(100m, list.GetValue(0), this);
+            Assert.Equal(101m, list.GetValue(1), this);
+            Assert.Equal(102m, list.GetValue(2), this);
             Assert.Equal(new decimal[] { 100m, 101m, 102m }, list.ToArray(), this);
             Assert.True(list.Remove(101m), this);
             Assert.False(list.Remove(103m), this);
-            Assert.Equal(100m, list.Get(0), this);
-            Assert.Equal(102m, list.Get(1), this);
+            Assert.Equal(100m, list.GetValue(0), this);
+            Assert.Equal(102m, list.GetValue(1), this);
             Assert.Equal(new decimal[] { 100m, 102m }, list.ToArray(), this);
-            list.Set(1, 101m);
+            list.SetValue(1, 101m);
             Assert.Equal(new decimal[] { 100m, 101m }, list.ToArray(), this);
 
             list = UdonList<decimal>.New(new decimal[] { 0m, 1m, 2m, 3m, 4m });

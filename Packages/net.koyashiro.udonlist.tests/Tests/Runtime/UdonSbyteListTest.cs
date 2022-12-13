@@ -15,16 +15,16 @@ namespace Koyashiro.UdonList.Tests
             list.Add((sbyte)100);
             list.Add((sbyte)101);
             list.Add((sbyte)102);
-            Assert.Equal((sbyte)100, list.Get(0), this);
-            Assert.Equal((sbyte)101, list.Get(1), this);
-            Assert.Equal((sbyte)102, list.Get(2), this);
+            Assert.Equal((sbyte)100, list.GetValue(0), this);
+            Assert.Equal((sbyte)101, list.GetValue(1), this);
+            Assert.Equal((sbyte)102, list.GetValue(2), this);
             Assert.Equal(new sbyte[] { 100, 101, 102 }, list.ToArray(), this);
             Assert.True(list.Remove((sbyte)101), this);
             Assert.False(list.Remove((sbyte)103), this);
-            Assert.Equal((sbyte)100, list.Get(0), this);
-            Assert.Equal((sbyte)102, list.Get(1), this);
+            Assert.Equal((sbyte)100, list.GetValue(0), this);
+            Assert.Equal((sbyte)102, list.GetValue(1), this);
             Assert.Equal(new sbyte[] { 100, 102 }, list.ToArray(), this);
-            list.Set(1, (sbyte)101);
+            list.SetValue(1, (sbyte)101);
             Assert.Equal(new sbyte[] { 100, 101 }, list.ToArray(), this);
 
             list = UdonList<sbyte>.New(new sbyte[] { 0, 1, 2, 3, 4 });

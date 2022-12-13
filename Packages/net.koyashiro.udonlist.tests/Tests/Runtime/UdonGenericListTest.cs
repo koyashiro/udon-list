@@ -19,14 +19,14 @@ namespace Koyashiro.UdonList.Tests
             gameObjectList.Add(gameObjects[0]);
             gameObjectList.Add(gameObjects[1]);
             gameObjectList.Add(gameObjects[2]);
-            Assert.Equal(gameObjects[0], gameObjectList.Get(0), this);
-            Assert.Equal(gameObjects[1], gameObjectList.Get(1), this);
-            Assert.Equal(gameObjects[2], gameObjectList.Get(2), this);
+            Assert.Equal(gameObjects[0], gameObjectList.GetValue(0), this);
+            Assert.Equal(gameObjects[1], gameObjectList.GetValue(1), this);
+            Assert.Equal(gameObjects[2], gameObjectList.GetValue(2), this);
             Assert.True(gameObjectList.Remove(gameObjects[1]), this);
             Assert.False(gameObjectList.Remove(gameObjects[3]), this);
             Assert.Equal(new GameObject[] { gameObjects[0], gameObjects[2] }, gameObjectList.ToArray(), this);
-            gameObjectList.Set(1, gameObjects[1]);
-            Assert.Equal(gameObjects[1], gameObjectList.Get(1), this);
+            gameObjectList.SetValue(1, gameObjects[1]);
+            Assert.Equal(gameObjects[1], gameObjectList.GetValue(1), this);
 
             gameObjectList = UdonList<GameObject>.New(gameObjects);
             gameObjectList.Reverse();

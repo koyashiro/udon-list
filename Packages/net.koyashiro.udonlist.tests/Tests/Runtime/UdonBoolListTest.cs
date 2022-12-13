@@ -15,16 +15,16 @@ namespace Koyashiro.UdonList.Tests
             list.Add(true);
             list.Add(true);
             list.Add(false);
-            Assert.Equal(true, list.Get(0), this);
-            Assert.Equal(true, list.Get(1), this);
-            Assert.Equal(false, list.Get(2), this);
+            Assert.Equal(true, list.GetValue(0), this);
+            Assert.Equal(true, list.GetValue(1), this);
+            Assert.Equal(false, list.GetValue(2), this);
             Assert.Equal(new bool[] { true, true, false, }, list.ToArray(), this);
             Assert.True(list.Remove(false), this);
             Assert.False(list.Remove(false), this);
-            Assert.Equal(true, list.Get(0), this);
-            Assert.Equal(true, list.Get(1), this);
+            Assert.Equal(true, list.GetValue(0), this);
+            Assert.Equal(true, list.GetValue(1), this);
             Assert.Equal(new bool[] { true, true }, list.ToArray(), this);
-            list.Set(1, false);
+            list.SetValue(1, false);
             Assert.Equal(new bool[] { true, false }, list.ToArray(), this);
 
             list = UdonList<bool>.New(new bool[] { false, true, true, false, true });

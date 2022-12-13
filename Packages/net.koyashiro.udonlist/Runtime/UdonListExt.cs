@@ -19,14 +19,14 @@ namespace Koyashiro.UdonList
             return Core.UdonList.Count((object[])(object)list);
         }
 
-        public static T Get<T>(this UdonList<T> list, int index)
+        public static T GetValue<T>(this UdonList<T> list, int index)
         {
-            return Core.UdonList.Get<T>((object[])(object)list, index);
+            return Core.UdonList.GetValue<T>((object[])(object)list, index);
         }
 
-        public static void Set<T>(this UdonList<T> list, int index, T item)
+        public static void SetValue<T>(this UdonList<T> list, int index, T item)
         {
-            Core.UdonList.Set((object[])(object)list, index, item);
+            Core.UdonList.SetValue((object[])(object)list, index, item);
         }
 
         public static void Add<T>(this UdonList<T> list, T item)

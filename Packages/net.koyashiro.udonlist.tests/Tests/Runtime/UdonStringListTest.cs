@@ -15,16 +15,16 @@ namespace Koyashiro.UdonList.Tests
             list.Add("first");
             list.Add("second");
             list.Add("third");
-            Assert.Equal("first", list.Get(0), this);
-            Assert.Equal("second", list.Get(1), this);
-            Assert.Equal("third", list.Get(2), this);
+            Assert.Equal("first", list.GetValue(0), this);
+            Assert.Equal("second", list.GetValue(1), this);
+            Assert.Equal("third", list.GetValue(2), this);
             Assert.Equal(new string[] { "first", "second", "third" }, list.ToArray(), this);
             Assert.True(list.Remove("second"), this);
             Assert.False(list.Remove("fourth"), this);
-            Assert.Equal("first", list.Get(0), this);
-            Assert.Equal("third", list.Get(1), this);
+            Assert.Equal("first", list.GetValue(0), this);
+            Assert.Equal("third", list.GetValue(1), this);
             Assert.Equal(new string[] { "first", "third" }, list.ToArray(), this);
-            list.Set(1, "second");
+            list.SetValue(1, "second");
             Assert.Equal(new string[] { "first", "second" }, list.ToArray(), this);
 
             list = UdonList<string>.New(new string[] { "0", "1", "2", "3", "4" });
