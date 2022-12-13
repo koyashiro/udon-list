@@ -21,7 +21,7 @@ public class UdonListSample : UdonSharpBehaviour
         // Alternative foreach
         for (var i = 0; i < convertedList.Count(); i++)
         {
-            Debug.Log(list.GetItem(i)); // "first", "third"
+            Debug.Log(list.Get(i)); // "first", "third"
         }
     }
 }

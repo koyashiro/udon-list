@@ -85,7 +85,7 @@ namespace Koyashiro.UdonList.Core
             return (int)list[1];
         }
 
-        public static T GetItem<T>(object[] list, int index)
+        public static T Get<T>(object[] list, int index)
         {
             var size = (int)list[1];
 
@@ -99,7 +99,7 @@ namespace Koyashiro.UdonList.Core
             return (T)items.GetValue(index);
         }
 
-        public static void SetItem(object[] list, int index, object item)
+        public static void Set(object[] list, int index, object item)
         {
             var size = (int)list[1];
 
