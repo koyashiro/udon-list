@@ -9,9 +9,9 @@ namespace Koyashiro.UdonList.Core
 
         public static object[] New<T>()
         {
-            var type = typeof(T);
-            var items = Array.CreateInstance(type, 0);
+            var items = Array.CreateInstance(typeof(T), 0);
             var size = 0;
+            var type = typeof(T);
 
             return new object[] { items, size, type };
         }
@@ -23,9 +23,9 @@ namespace Koyashiro.UdonList.Core
                 ExceptionHelper.ThrowArgumentNullException(nameof(collection));
             }
 
-            var type = typeof(T);
-            var items = collection.Clone();
+            var items = (T[])collection.Clone();
             var size = collection.Length;
+            var type = GetElementType(items);
 
             return new object[] { items, size, type };
         }
@@ -37,9 +37,9 @@ namespace Koyashiro.UdonList.Core
                 ExceptionHelper.ThrowArgumentOutOfRangeException();
             }
 
-            var type = typeof(T);
-            var items = Array.CreateInstance(type, capacity);
+            var items = Array.CreateInstance(typeof(T), capacity);
             var size = 0;
+            var type = typeof(T);
 
             return new object[] { items, size, type };
         }
@@ -591,6 +591,39 @@ namespace Koyashiro.UdonList.Core
             }
 
             SetCapacity(list, size);
+        }
+
+        private static Type GetElementType(Array array)
+        {
+            var typeFullName = array.GetType().FullName;
+            typeFullName = typeFullName.Remove(typeFullName.Length - 2);
+
+            var type = Type.GetType(typeFullName);
+            if (type == null)
+            {
+                var assemblyName = typeFullName;
+                while (true)
+                {
+                    type = Type.GetType($"{typeFullName}, {assemblyName}");
+                    if (type != null)
+                    {
+                        break;
+                    }
+
+                    var dotIndex = assemblyName.LastIndexOf('.');
+                    if (dotIndex != -1)
+                    {
+                        assemblyName = assemblyName.Remove(dotIndex);
+                    }
+                    else
+                    {
+                        // Error
+                        ((object)null).ToString();
+                    }
+                }
+            }
+
+            return type;
         }
 
         private static void HeapSort<T>(T[] array, int index, int count) where T : IComparable
