@@ -33,8 +33,11 @@ namespace Koyashiro.UdonList.Tests
             list.Reverse(1, 3);
             Assert.Equal(new string[] { "4", "1", "2", "3", "0" }, list.ToArray(), this);
 
+            list.SetValue(1, null);
+            list.SetValue(2, "");
+            list.SetValue(3, null);
             list.Sort();
-            Assert.Equal(new string[] { "0", "1", "2", "3", "4" }, list.ToArray(), this);
+            Assert.Equal(new string[] { null, null, "", "0", "4" }, list.ToArray(), this);
         }
     }
 }
