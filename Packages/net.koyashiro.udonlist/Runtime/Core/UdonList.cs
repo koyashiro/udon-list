@@ -636,7 +636,8 @@ namespace Koyashiro.UdonList.Core
                     var _j = (j - (index + 1)) / 2 + index;
                     var _p = array[_j];
                     var _c = array[j];
-                    if (_p.CompareTo(_c) < 0)
+                    if (_c != null && _c.CompareTo(_p) > 0
+                     || _p != null && _p.CompareTo(_c) < 0)
                     {
                         array[_j] = _c;
                         array[j] = _p;
@@ -671,14 +672,25 @@ namespace Koyashiro.UdonList.Core
                         break;
                     }
 
-                    if (array[left].CompareTo(array[k]) > 0)
                     {
-                        k = left;
+                        var _p = array[left];
+                        var _c = array[k];
+                        if (_c != null && _c.CompareTo(_p) < 0
+                         || _p != null && _p.CompareTo(_c) > 0)
+                        {
+                            k = left;
+                        }
                     }
 
-                    if (right < i && array[right].CompareTo(array[k]) > 0)
+                    if (right < i)
                     {
-                        k = right;
+                        var _p = array[right];
+                        var _c = array[k];
+                        if (_c != null && _c.CompareTo(_p) < 0
+                         || _p != null && _p.CompareTo(_c) > 0)
+                        {
+                            k = right;
+                        }
                     }
 
                     if (k == j)
@@ -707,7 +719,8 @@ namespace Koyashiro.UdonList.Core
                     var _j = (j - 1) / 2;
                     var _p = array[_j];
                     var _c = array[j];
-                    if (_p.CompareTo(_c) < 0)
+                    if (_c != null && _c.CompareTo(_p) > 0
+                     || _p != null && _p.CompareTo(_c) < 0)
                     {
                         array[_j] = _c;
                         array[j] = _p;
@@ -742,14 +755,25 @@ namespace Koyashiro.UdonList.Core
                         break;
                     }
 
-                    if (array[left].CompareTo(array[k]) > 0)
                     {
-                        k = left;
+                        var _p = array[left];
+                        var _c = array[k];
+                        if (_c != null && _c.CompareTo(_p) < 0
+                         || _p != null && _p.CompareTo(_c) > 0)
+                        {
+                            k = left;
+                        }
                     }
 
-                    if (right < i && array[right].CompareTo(array[k]) > 0)
+                    if (right < i)
                     {
-                        k = right;
+                        var _p = array[right];
+                        var _c = array[k];
+                        if (_c != null && _c.CompareTo(_p) < 0
+                         || _p != null && _p.CompareTo(_c) > 0)
+                        {
+                            k = right;
+                        }
                     }
 
                     if (k == j)
