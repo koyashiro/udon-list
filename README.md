@@ -2,6 +2,12 @@
 
 List implementation for UdonSharp.
 
+## Installation
+
+```sh
+vpm add repo https://vpm.koyashiro.net/repos.json
+```
+
 ## Example
 
 `UdonList` example for a `string`.
