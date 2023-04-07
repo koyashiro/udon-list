@@ -7,7 +7,7 @@
       "version": "1.2.2"
     },
     "com.vrchat.core.vpm-resolver": {
-      "version": "0.1.17"
+      "version": "0.1.18"
     },
     "net.koyashiro.udontest": {
       "version": "0.4.2"
@@ -21,13 +21,13 @@
       }
     },
     "com.vrchat.worlds": {
-      "version": "3.1.11",
+      "version": "3.1.13",
       "dependencies": {
-        "com.vrchat.base": "3.1.11"
+        "com.vrchat.base": "3.1.13"
       }
     },
     "com.vrchat.base": {
-      "version": "3.1.11",
+      "version": "3.1.13",
       "dependencies": {}
     },
     "com.vrchat.clientsim": {
@@ -37,7 +37,8 @@
       }
     },
     "com.vrchat.core.vpm-resolver": {
-      "version": "0.1.17"
+      "version": "0.1.18",
+      "dependencies": {}
     },
     "net.koyashiro.udontest": {
       "version": "0.4.2",
