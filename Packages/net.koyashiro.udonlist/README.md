@@ -1,3 +1,9 @@
+# ⚠️ ARCHIVED ⚠️
+
+This repository has been archived following the launch of [DataList](https://docs.vrchat.com/docs/data-lists). We strongly recommend using [DataList](https://docs.vrchat.com/docs/data-lists) for future projects.
+
+If you're in need of a generic version of DataList, consider using the [GenericDataContainer](https://github.com/koyashiro/generic-data-container) repository as a potential resource.
+
 # UdonList
 
 List implementation for UdonSharp.

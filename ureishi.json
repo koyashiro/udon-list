@@ -1,0 +1,28 @@
+{
+  "name": "ureishi",
+  "author": "ureishi",
+  "url": "",
+  "packages": {
+    "net.ureishi.qvpen": {
+      "versions": {
+        "3.2.6": {
+          "version": "3.2.6",
+          "name": "net.ureishi.qvpen",
+          "dependencies": {
+            "com.unity.textmeshpro": "2.1.4"
+          },
+          "description": "VRChat World Pen.",
+          "displayName": "QvPen",
+          "legacyFolders": {
+            "Assets\\QvPen": "0eeec8527d6948040915b97bddf0ba10"
+          },
+          "unity": "2019.4",
+          "url": "https://github.com/ureishi/QvPen/releases/download/v3.2.6/net.ureishi.qvpen-3.2.6.zip",
+          "vpmDependencies": {
+            "com.vrchat.udonsharp": "1.1.7"
+          }
+        }
+      }
+    }
+  }
+}
